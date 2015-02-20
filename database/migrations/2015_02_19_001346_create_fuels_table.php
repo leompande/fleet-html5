@@ -12,7 +12,7 @@ class CreateFuelsTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('makes', function(Blueprint $table)
+        Schema::create('fuels', function(Blueprint $table)
         {
             $table->increments('id');
             $table->integer('full_tank');
@@ -27,7 +27,7 @@ class CreateFuelsTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('makes');
+        Schema::drop('fuels');
 	}
 
 }

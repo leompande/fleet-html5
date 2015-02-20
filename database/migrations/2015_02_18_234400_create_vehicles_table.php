@@ -33,7 +33,9 @@ class CreateVehiclesTable extends Migration {
             $table->string('tare_weight');
             $table->string('gross_weight');
             $table->string('imported_from');
-            $table->string('usage_id');
+            $table->integer('usage_id');
+            $table->integer('modal_id');
+            $table->integer('make_id');
             $table->integer('fuel_consumption_rate');
             $table->timestamps();
         });
