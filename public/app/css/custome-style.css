@@ -1,0 +1,12 @@
+a.big-menu:hover{
+    text-decoration: none;
+}
+
+.big-menu h3 {
+    color:#656565;
+}
+
+.menuicon{
+    width:20px;
+    height:18px;
+}
