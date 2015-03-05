@@ -33,56 +33,9 @@
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane {{ listTabState }}" >
                         <div >
-                        <table id="datatable2" class="table table-striped table-hover">
-                        <thead>
-                        <tr>
-                            <th>Reg. Number</th>
-                            <th>Model</th>
-                            <th>Model Number</th>
-                            <th class="sort-numeric">Make</th>
-                            <th class="sort-alpha">Body Type</th>
-                            <th class="sort-alpha">Color</th>
-                            <th class="sort-alpha">Usage</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="vehicle in vehicleList" class="gradeX">
-                            <td>{{ vehicle.registration_number }}</td>
-                            <td>{{ vehicle.modal_id }}</td>
-                            <td>{{ "unknown" }}</td>
-                            <td>{{ vehicle.make_id }}</td>
-                            <td>{{ vehicle.body_type }}</td>
-                            <td>{{ vehicle.color }}</td>
-                            <td>{{ vehicle.usage_id }}</td>
 
-                        </tr>
-                        </tbody>
-                        <tfoot>
-                        <tr>
-                            <th>
-                                <input type="text" name="filter_rendering_engine" placeholder="Filter Registration number" class="form-control input-sm datatable_input_col_search">
-                            </th>
-                            <th>
-                                <input type="text" name="filter_browser" placeholder="Filter Model" class="form-control input-sm datatable_input_col_search">
-                            </th>
-                            <th>
-                                <input type="text" name="filter_platform" placeholder="Filter Model Number" class="form-control input-sm datatable_input_col_search">
-                            </th>
-                            <th>
-                                <input type="text" name="filter_engine_version" placeholder="Filter Make" class="form-control input-sm datatable_input_col_search">
-                            </th>
-                            <th>
-                                <input type="text" name="filter_css_grade" placeholder="Filter Body Type" class="form-control input-sm datatable_input_col_search">
-                            </th>
-                            <th>
-                                <input type="text" name="filter_css_grade" placeholder="Filter Color" class="form-control input-sm datatable_input_col_search">
-                            </th>
-                            <th>
-                                <input type="text" name="filter_css_grade" placeholder="Filter Usage" class="form-control input-sm datatable_input_col_search">
-                            </th>
-                        </tr>
-                        </tfoot>
-                        </table>
+                            <custome-vehicle-table list="vehicleList" colums="shownColumn" titles="shownTitles"></custome-vehicle-table>
+
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane {{ addTabState }}" >

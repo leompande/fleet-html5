@@ -11,7 +11,7 @@
  */
 
 
-var fleetApp = angular.module("fleetApp",['ngRoute','dashboardModule','vehicleApp']);
+var fleetApp = angular.module("fleetApp",['ngRoute','dashboardModule','vehicleApp','driverApp']);
 
     // fleet module configurations
    fleetApp.config(['$routeProvider', function($routeProvider) {

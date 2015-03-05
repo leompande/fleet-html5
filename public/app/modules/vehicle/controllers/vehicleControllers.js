@@ -2,7 +2,7 @@
  * Created by leo on 2/21/15.
  */
 var vehicleApp = angular.module("vehicleApp");
-    vehicleApp.controller("vehicleController",['$scope', '$http', '$resource', 'baseUrl',function($scope, $http, $resource, baseUrl){
+    vehicleApp.controller("vehicleController",['$scope', '$http', '$resource', 'baseUrlVehicles',function($scope, $http, $resource, baseUrlVehicles){
         $scope.vehicleModuleTitle = "REGISTERED VEHICLES";
         $scope.vehicleObject = {
             registration_number: "",
@@ -29,10 +29,12 @@ var vehicleApp = angular.module("vehicleApp");
             fuel_consumption_rate: ""
 
         };
-        $scope.vehicleList  = null;
+        $scope.shownColumn = {0:'registration_number',1:'vehicle_control_number',2:'body_type',3:'fuel_used',4:'fuel_consumption_rate',5:'seat_capacity'};
+        $scope.shownTitles = {0:'Reg Number',1:'Model',2:'Body Type',3:'Fuel',4:'Consumption Rate',5:'Seat Capacity'};
+        //$scope.vehicleList  = null;
         $scope.listTabState = "active";
         $scope.addTabState = null;
-        $scope.vehiclesResource = $resource(baseUrl + ":id", { id: "@id" },{ create: { method: "POST" }, save: { method: "PUT" }});
+        $scope.vehiclesResource = $resource(baseUrlVehicles + ":id", { id: "@id" },{ create: { method: "POST" }, save: { method: "PUT" }});
 
 
 
@@ -49,7 +51,6 @@ var vehicleApp = angular.module("vehicleApp");
 
             vehicles.$promise.then(function (data) {
                 $scope.vehicleList = data;
-                console.log($scope.vehicleList);
             });
 
 
@@ -72,7 +73,6 @@ var vehicleApp = angular.module("vehicleApp");
 
 
         $scope.addVehicle  = function(newVehicle){
-console.log(newVehicle.vehicle_control_number);
             $scope.vehicleObject.registration_number    = newVehicle.registration_number;
             $scope.vehicleObject.vehicle_control_number = newVehicle.vehicle_control_number;
             $scope.vehicleObject.first_registered       = newVehicle.first_registered;
