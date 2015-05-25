@@ -4,16 +4,33 @@
 
 var fleetApp = angular.module("fleetApp");
 
-fleetApp.controller("appController",function($scope){
+fleetApp.controller("appController",function($scope,$route){
     $scope.moduleName = "";
+    $scope.subModule = "";
     $scope.setTitle = function(titleName){
         $scope.moduleName = titleName.capitalize();
     }
+
+    $scope.setSubModule = function(submodule){
+        $scope.subModule = submodule;
+    }
+
 
 
 
     String.prototype.capitalize = function(){
         return this.replace( /(^|\s)([a-z])/g , function(m,p1,p2){ return p1+p2.toUpperCase(); } );
     };
+
+});
+
+fleetApp.controller("dataEntryController",function($scope,$route){
+    $scope.setSubModule('');
+    $scope.setTitle("Data Entry");
+
+    $scope.setAlert = function(abd){
+        alert("abcd");
+    };
+
 
 });

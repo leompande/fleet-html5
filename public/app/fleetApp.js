@@ -18,11 +18,11 @@ var fleetApp = angular.module("fleetApp",['ngRoute','dashboardModule','vehicleAp
        $routeProvider
        .when('/dashboard', {
            templateUrl: "public/app/views/dashboard.html",
-           controller: ""
+           controller: "dashboardController"
        })
        .when('/dataentry', {
                templateUrl: "public/app/views/dataentry.html",
-               controller: ""
+               controller: "dataEntryController"
        })
        .when('/report', {
                template: '<h5>This is the report</h5>'

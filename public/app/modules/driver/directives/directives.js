@@ -9,7 +9,7 @@ angular.module("driverApp")
                 var myD = angular.element( document.querySelector( '.drops' ) );
                 var inlineEditMenu = angular.element( document.querySelector( '#inlineEdit' ) );
                 scope.id = null;
-
+                scope.objectToplayWith = null;
 
                 $('html').click(function() {
                     myEl.css('display','none');
@@ -18,7 +18,7 @@ angular.module("driverApp")
 
                scope.contextMenu = function(event,jsonObject){
                    scope.openLocation(event);
-
+                   scope.objectToplayWith = jsonObject;
                    $(".input_"+scope.id).css('display','none');
                    $(".text_"+scope.id).css('display','block');
 
@@ -41,10 +41,15 @@ angular.module("driverApp")
                    scope.offsetY = event.clientY;//(event.clientY-100);
                }
 
-                scope.inlineEdit = function(jsonObject){
+               scope.inlineEdit = function(jsonObject){
                     $(".input_"+jsonObject.id).css('display','block');
                     $(".text_"+jsonObject.id).css('display','none');
                 }
+               scope.editDriver = function(obj){
+                   console.log(obj);
+                   console.log($("#tabForm").trigger("click"));
+
+               }
 
             },
             restrict:"E",

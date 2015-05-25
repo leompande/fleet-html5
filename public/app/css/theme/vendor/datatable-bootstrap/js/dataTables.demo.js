@@ -1,7 +1,6 @@
 /**
  * Created by leo on 2/23/15.
  */
-    alert($("#datatable2").html());
 var dtInstance2 = $('#datatable2').dataTable({
     'paging':   true,  // Table pagination
     'ordering': true,  // Column ordering

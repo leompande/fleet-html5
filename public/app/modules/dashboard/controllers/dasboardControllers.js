@@ -4,5 +4,5 @@
 var dashboardModule = angular.module("dashboardModule");
 
 dashboardModule.controller("dashboardController",function($scope){
-   // $scope.moduleName = "Dashboard";
+    $scope.setSubModule('');
 });

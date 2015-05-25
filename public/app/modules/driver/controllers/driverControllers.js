@@ -2,8 +2,9 @@
  * Created by leo on 2/21/15.
  */
 var driverApp = angular.module("driverApp");
-driverApp.controller("driverController",['$scope', '$http', '$resource', 'baseUrlDrivers',function($scope, $http, $resource, baseUrlDrivers){
+driverApp.controller("driverController",['$scope','$route', '$http', '$resource', 'baseUrlDrivers','DTOptionsBuilder', 'DTColumnDefBuilder',function($scope,$route, $http, $resource, baseUrlDrivers, DTOptionsBuilder, DTColumnDefBuilder){
     $scope.driverModuleTitle = "REGISTERED DRIVERS";
+    $scope.subModule = $route.current.$$route.originalPath;
     $scope.driverObject = {
         first_name: "",
         middle_name: "",

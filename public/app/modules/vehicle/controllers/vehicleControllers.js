@@ -2,9 +2,10 @@
  * Created by leo on 2/21/15.
  */
 var vehicleApp = angular.module("vehicleApp");
-    vehicleApp.controller("vehicleController",['$scope', '$http', '$resource', 'baseUrlVehicles',function($scope, $http, $resource, baseUrlVehicles){
+    vehicleApp.controller("vehicleController",['$scope','$route', '$http', '$resource', 'baseUrlVehicles','DTOptionsBuilder', 'DTColumnDefBuilder',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder){
         $scope.vehicleModuleTitle = "REGISTERED VEHICLES";
-        $scope.vehicleObject = {
+        $scope.subModule = $route.current.$$route.originalPath;
+        $scope.vehicleObject  = {
             registration_number: "",
             vehicle_control_number: "",
             first_registered: "",
@@ -27,51 +28,77 @@ var vehicleApp = angular.module("vehicleApp");
             modal_id: "",
             make_id: "",
             fuel_consumption_rate: ""
-
         };
-        $scope.shownColumn = {0:'registration_number',1:'vehicle_control_number',2:'body_type',3:'fuel_used',4:'fuel_consumption_rate',5:'seat_capacity'};
-        $scope.shownTitles = {0:'Reg Number',1:'Model',2:'Body Type',3:'Fuel',4:'Consumption Rate',5:'Seat Capacity'};
-        //$scope.vehicleList  = null;
-        $scope.listTabState = "active";
-        $scope.addTabState = null;
-        $scope.vehiclesResource = $resource(baseUrlVehicles + ":id", { id: "@id" },{ create: { method: "POST" }, save: { method: "PUT" }});
-
-
+        var sampleObj         = $scope.vehicleObject;
+        $scope.failuremessage = true;
+        $scope.shownColumn    = {0:'registration_number',1:'vehicle_control_number',2:'body_type',3:'fuel_used',4:'fuel_consumption_rate',5:'seat_capacity'};
+        $scope.shownTitles    = {0:'Reg Number',1:'Control Number',2:'Body Type',3:'Fuel',4:'Consumption Rate',5:'Seat Capacity'};
+        $scope.listTabState   = "active";
+        $scope.addTabState    = null;
+        $scope.vehiclesResource = $resource(baseUrlVehicles + ":id", { id: "@id" },{ create: { method: "POST" }, save: { method: "PUT" },update: {method:'PUT'}});
 
         $scope.saveVehicle = function(vehicle){
             new $scope.vehiclesResource(vehicle).$create().then(function (newVehicle) {
                 $scope.vehicleList.push(newVehicle);
+                $scope.newVehicle.registration_number = "";
+                $scope.newVehicle.vehicle_control_number = "";
+                $scope.newVehicle.first_registered = "";
+                $scope.newVehicle.model_number = "";
+                $scope.newVehicle.body_type = "";
+                $scope.newVehicle.color ="";
+                $scope.newVehicle.class = "";
+                $scope.newVehicle.year_of_manufacture = "";
+                $scope.newVehicle.chassis_no = "";
+                $scope.newVehicle.engine_no = "";
+                $scope.newVehicle.engine_capacity ="";
+                $scope.newVehicle.fuel_used = "";
+                $scope.newVehicle.number_of_axles = "";
+                $scope.newVehicle.axle_distance = "";
+                $scope.newVehicle.seat_capacity ="";
+                $scope.newVehicle.tare_weight = "";
+                $scope.newVehicle.gross_weight = "";
+                $scope.newVehicle.imported_from = "";
+                $scope.newVehicle.usage_id = "";
+                $scope.newVehicle.modal_id = "";
+                $scope.newVehicle.make_id = "";
+                $scope.newVehicle.fuel_consumption_rate = "";
+                $scope.successmessage = true;
+                $scope.failuremessage = false;
 
             });
         }
+        $scope.updateInline = function(objectId,edittedColumn,newValue){
+            var editedVehicle = getObjectById($scope.vehicleList,objectId);
+            new $scope.vehiclesResource(editedVehicle).$update().then(function (editedVehicle) {
+            });
+        }
 
+        $scope.update = function(){
+           // new $scope.vehiclesResource(vehicle).$update().then(function(){});
+            console.log("this is controller communication for update");
+        }
+
+        $scope.viewMore = function(){
+            $scope.modalTile = "View More/ Vehicle Name";
+            console.log("this is controller communication for view more");
+        }
+        $scope.remove = function(){
+            console.log("this is controller communication for remove");
+        }
 
         $scope.listVehicles = function(){
             var vehicles = $scope.vehiclesResource.query();
-
             vehicles.$promise.then(function (data) {
                 $scope.vehicleList = data;
             });
-
-
         }
-
         $scope.showVehicle = function(id){
 
         }
-
-
-
         $scope.editVehicle = function(id){
-
         }
-
-
         $scope.deleteVehicle = function(id){
-
         }
-
-
         $scope.addVehicle  = function(newVehicle){
             $scope.vehicleObject.registration_number    = newVehicle.registration_number;
             $scope.vehicleObject.vehicle_control_number = newVehicle.vehicle_control_number;
@@ -100,9 +127,6 @@ var vehicleApp = angular.module("vehicleApp");
 
         }
 
-
-
-
         $scope.changeState = function(id){
 
             if($scope.listTabState=="active" && id=="list"){
@@ -127,5 +151,12 @@ var vehicleApp = angular.module("vehicleApp");
         }
 
         $scope.listVehicles();
+
+        function getObjectById(array,id){
+            for (var d = 0, len = array.length; d < len; d += 1) {
+                if (array[d].id === id) {
+                    return array[d];
+                }
+        }}
 
     }]);

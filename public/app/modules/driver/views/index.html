@@ -9,14 +9,16 @@
 </style>
 
 <script src="public/app/js/jquery/jquery.js"></script>
-<script src="public/app/css/theme/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
+<!--script src="public/app/css/theme/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
 <script src="public/app/css/theme/vendor/datatables-colvis/js/dataTables.colVis.js"></script>
 <script src="public/app/css/theme/vendor/datatable-bootstrap/js/dataTables.bootstrap.js"></script>
 <script src="public/app/css/theme/vendor/datatable-bootstrap/js/dataTables.bootstrapPagination.js"></script>
-
-<script src="public/app/css/theme/vendor/datatable-bootstrap/js/dataTables.demo.js"></script>
+<script src="public/app/css/theme/vendor/datatable-bootstrap/js/dataTables.demo.js"></script-->
+<script src="public/app/js/bower_components/datatables/media/js/jquery.dataTables.js"></script>
+<script src="public/app/js/bower_components/angular-datatables/dist/angular-datatables.js"></script>
 
 <div ng-app="driverApp" ng-controller="driverController">
+    {{ setSubModule('/ Drivers') }}
     <div class="panel panel-default">
         <div class="panel-heading"> {{ driverModuleTitle }} </div>
         <div class="panel-body">
@@ -25,8 +27,8 @@
 
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="{{ listTabState }}" ><a ng-click="changeState('list')"  role="tab" >Registered Drivers</a></li>
-                    <li role="presentation" class="{{ addTabState }}" ><a  ng-click="changeState('add')" role="tab" >Add/Edit Driver</a></li>
+                    <li role="presentation" class="{{ listTabState }}" ><a ng-click="changeState('list')" id="tabList" role="tab" >Registered Drivers</a></li>
+                    <li role="presentation" class="{{ addTabState }}" ><a  ng-click="changeState('add')" id="tabForm" role="tab" >Add/Edit Driver</a></li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -34,7 +36,7 @@
                     <div role="tabpanel" class="tab-pane {{ listTabState }}" >
                         <div >
 
-                            <custome-driver-table list="driverList" colums="shownColumn" titles="shownTitles"></custome-driver-table>
+                            <custome-driver-table list="driverList" colums="shownColumn" titles="shownTitles" ></custome-driver-table>
 
                         </div>
                     </div>
@@ -135,7 +137,7 @@
                                 <div class="actions clearfix">
                                     <ul role="menu" aria-label="Pagination">
                                         <li class="disabled" aria-disabled="true">
-                                            <a href="#/dataentry" role="menuitem">Previous</a>
+                                            <a href="#/vehicles" role="menuitem">Previous</a>
                                         </li>
                                         <li aria-hidden="false" aria-disabled="false">
                                             <button type="button" class="btn btn-danger">Cancel</button>

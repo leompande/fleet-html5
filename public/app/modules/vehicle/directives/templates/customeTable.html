@@ -74,39 +74,53 @@
         position: absolute!important;
 
     }
+
+
+
 </style>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" style="width:1034px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{ modalTile }}</h4>
+            </div>
+            <div class="modal-body">
 
-
-<table id="datatable2" class="table table-striped table-hover">
+                <div ng-if="edit">
+                    <vehicle-edit vehicle="currentVehicle"></vehicle-edit>
+                </div>
+                <div ng-if="details">
+                    <vehicle-details vehicle="currentVehicle"></vehicle-details>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button ng-if="save" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<table id="datatable2" datatable="ng" dt-options="showCase.dtOptions" dt-column-defs="showCase.dtColumnDefs" class="table table-striped table-hover table-condensed dataTable" >
     <thead>
     <tr>
-        <th ng-repeat="title in titles">{{ title }}</th>
+       <th>#</th> <th ng-repeat="title in titles">{{ title }}</th>
     </tr>
     </thead>
     <tbody>
     <div class="dropdown drops" >
-        <!--<a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">-->
-
-        <!--</a>-->
         <ul class="dropdown-menus" role="menu" aria-labelledby="dropdownMenu1" >
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">View More<i class="fa fa-search pull-right"></i></a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" id="viewMore" data-toggle="modal" data-target="#myModal">View More<i class="fa fa-search pull-right"></i></a></li>
             <li role="presentation"><a role="menuitem" tabindex="-1"  id="inlineEdit">Inline Edit<i class="fa fa-eraser pull-right"></i></a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Edit<i class="fa fa-edit pull-right"></i></a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1"  ng-click="vehicleController.changeState('add')">Edit<i class="fa fa-edit pull-right"></i></a></li>
             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Remove<i class="fa fa-trash-o pull-right"></i></a></li>
         </ul>
     </div>
-    <tr ng-repeat="object in tableData " class="gradeX" ng-click="contextMenu($event,object)" >
-
-        <td ng-repeat="colum in colums "><span class="innerText text_{{object.id}}">{{ object[colum] | filter: searchText }}</span>  <input class="innerInput input_{{object.id}}" style="display: none" type="text" value="{{ object[colum] }}"></td>
+    <tr ng-repeat="object in tableData " class="gradeX" ng-click="contextMenu($event,object)" title="click to edit or delete" >
+        <td>{{$index+1}}</td><td ng-repeat="colum in colums"><span class="innerText text_{{object.id}}">{{ object[colum]}}</span>  <input  ng-change="change(object[colum],colum,'vehicle')" ng-model="object[colum]" class="innerInput input_{{object.id}}"  style="display: none" type="text" value="{{ object[colum] }}"></td>
     </tr>
     </tbody>
-    <tfoot>
-    <tr>
-        <th ng-repeat="colum in colums">
-            <input type="text" name="{{ colum }}" ng-model="searchText" placeholder="Filter {{ titles[$index] }}" class="form-control input-sm datatable_input_col_search">
-        </th>
-    </tr>
-    </tfoot>
 </table>
 
 <script>

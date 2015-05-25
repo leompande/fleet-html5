@@ -7,16 +7,8 @@
         /*text-align: center;*/
     }
 </style>
-
-<script src="public/app/js/jquery/jquery.js"></script>
-<script src="public/app/css/theme/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
-<script src="public/app/css/theme/vendor/datatables-colvis/js/dataTables.colVis.js"></script>
-<script src="public/app/css/theme/vendor/datatable-bootstrap/js/dataTables.bootstrap.js"></script>
-<script src="public/app/css/theme/vendor/datatable-bootstrap/js/dataTables.bootstrapPagination.js"></script>
-
-<script src="public/app/css/theme/vendor/datatable-bootstrap/js/dataTables.demo.js"></script>
-
 <div ng-app="vehicleApp" ng-controller="vehicleController">
+    {{ setSubModule('/ Vehicles') }}
     <div class="panel panel-default">
         <div class="panel-heading"> {{ vehicleModuleTitle }} </div>
         <div class="panel-body">
@@ -26,7 +18,7 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="{{ listTabState }}" ><a ng-click="changeState('list')"  role="tab" >Registered vehicles</a></li>
-                    <li role="presentation" class="{{ addTabState }}" ><a  ng-click="changeState('add')" role="tab" >Add/Edit vehicle</a></li>
+                    <li role="presentation" class="{{ addTabState }}" ><a  ng-click="changeState('add')" role="tab" >Add vehicle</a></li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -34,7 +26,7 @@
                     <div role="tabpanel" class="tab-pane {{ listTabState }}" >
                         <div >
 
-                            <custome-vehicle-table list="vehicleList" colums="shownColumn" titles="shownTitles"></custome-vehicle-table>
+                            <custome-vehicle-table list="vehicleList" colums="shownColumn" titles="shownTitles" edit="update()" inline="updateInline(objectId,edittedColumn,newValue)" delete="remove()" more="viewMore()"></custome-vehicle-table>
 
                         </div>
                     </div>
@@ -65,19 +57,19 @@
                                             <td>
                                                 <div class="form-group">
                                                     <label for="make">Make :</label>
-                                                    <input type="text" class="form-control" id="make" placeholder="Make">
+                                                    <input type="text" class="form-control" id="make" ng-model="newVehicle.make_id" placeholder="Make">
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
                                                     <label for="model">Model :</label>
-                                                    <input type="text" class="form-control" id="model" placeholder="Model">
+                                                    <input type="text" class="form-control" id="model" ng-model="newVehicle.modal_id" placeholder="Model">
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
                                                     <label for="model_number">Model Number :</label>
-                                                    <input type="text" class="form-control" id="model_number" placeholder="Model Number">
+                                                    <input type="text" class="form-control" id="model_number" ng-model="newVehicle.model_number" placeholder="Model Number">
                                                 </div>
                                             </td>
                                         </tr>
@@ -85,19 +77,19 @@
                                             <td>
                                                 <div class="form-group">
                                                     <label for="make">Body:</label>
-                                                    <input type="text" class="form-control" id="body_type" placeholder="Body Type">
+                                                    <input type="text" class="form-control" id="body_type" ng-model="newVehicle.body_type" placeholder="Body Type">
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
                                                     <label for="model">Color :&nbsp;&nbsp;</label>
-                                                    <input type="text" class="form-control" id="color" placeholder="Color">
+                                                    <input type="text" class="form-control" id="color" ng-model="newVehicle.color" placeholder="Color">
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
                                                     <label for="model_number">Vehicle class :</label>
-                                                    <input type="text" class="form-control" id="class" placeholder="Class">
+                                                    <input type="text" class="form-control" id="class" ng-model="newVehicle.class" placeholder="Class">
                                                 </div>
                                             </td>
                                         </tr>
@@ -125,7 +117,7 @@
                                             <td>
                                                 <div class="form-group">
                                                     <label for="usage">Usage :</label>
-                                                    <input type="text" class="form-control" id="usage" ng-model="newVehicle.fuel_used" placeholder="Usage">
+                                                    <input type="text" class="form-control" id="usage" ng-model="newVehicle.usage_id" placeholder="Usage">
                                                 </div>
                                             </td>
                                             <td>
@@ -137,7 +129,7 @@
                                             <td>
                                                 <div class="form-group">
                                                     <label for="number_axles">Number Of Axles :</label>
-                                                    <input type="text" class="form-control" id="number_axles" ng-model="number_of_axles" placeholder="Number Of Axles">
+                                                    <input type="text" class="form-control" id="number_axles" ng-model="newVehicle.number_of_axles" placeholder="Number Of Axles">
                                                 </div>
                                             </td>
                                         </tr>
@@ -145,19 +137,19 @@
                                             <td>
                                                 <div class="form-group">
                                                     <label for="tare_weight">Tare Weight :</label>
-                                                    <input type="text" class="form-control" id="tare_weight" ng-model="number_of_axles" placeholder="Tare Weight">
+                                                    <input type="text" class="form-control" id="tare_weight" ng-model="newVehicle.tare_weight" placeholder="Tare Weight">
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
                                                     <label for="gross_weight">Gross Weight :</label>
-                                                    <input type="text" class="form-control" id="gross_weight" placeholder="Gross Weight">
+                                                    <input type="text" class="form-control" id="gross_weight" ng-model="newVehicle.gross_weight" placeholder="Gross Weight">
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
                                                     <label for="imported_from">Imported from :</label>
-                                                    <input type="text" class="form-control" id="imported_from" placeholder="Imported from">
+                                                    <input type="text" class="form-control" id="imported_from" ng-model="newVehicle.imported_from" placeholder="Imported from">
                                                 </div>
                                             </td>
                                         </tr>
@@ -165,13 +157,13 @@
                                             <td>
                                                 <div class="form-group">
                                                     <label for="axle_distance">Axle Distance :</label>
-                                                    <input type="text" class="form-control" id="axle_distance" placeholder="Axle Distance">
+                                                    <input type="text" class="form-control" id="axle_distance" ng-model="newVehicle.axle_distance" placeholder="Axle Distance">
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
                                                     <label for="year_manufactured">Year Manufactured :</label>
-                                                    <input type="text" class="form-control" id="year_manufactured" placeholder="Year Manufactured">
+                                                    <input type="text" class="form-control" id="year_manufactured" ng-model="newVehicle.year_of_manufacture" placeholder="Year Manufactured">
                                                 </div>
                                             </td>
 
@@ -182,12 +174,20 @@
 
 
                                 <div class="actions clearfix">
+                                    <div class="alert alert-success alert-dismissible" ng-if="successmessage" role="alert" style="font-weight: bolder;text-align: left;">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        {{ "Congratulations!!... Registered successfully." }}
+                                    </div>
+                                    <div class="alert alert-danger alert-dismissible" ng-if="failuremessage" role="alert" style="font-weight: bolder;text-align: left;">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        {{ "Sorry!!... Registration failed." }}
+                                    </div>
                                     <ul role="menu" aria-label="Pagination">
                                         <li class="disabled" aria-disabled="true">
-                                            <a href="#/dataentry" role="menuitem">Previous</a>
+                                            <button ng-click="changeState('list')" class="btn btn-default">List</button>
                                         </li>
                                         <li aria-hidden="false" aria-disabled="false">
-                                            <button type="button" class="btn btn-danger">Cancel</button>
+                                            <button type="button"  class="btn btn-danger">Cancel</button>
                                         </li>
                                         <li aria-hidden="false" style="display: block;">
                                             <button type="submit" class="btn btn-primary">Finish</button>

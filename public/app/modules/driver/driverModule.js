@@ -3,4 +3,3 @@
  */
 var vehicleApp = angular.module("driverApp",['ngRoute','ngResource']);
 vehicleApp.constant('baseUrlDrivers',"/fleet/public/index.php/drivers/");
-console.log("driver module");

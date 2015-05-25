@@ -31,6 +31,9 @@
 
 
     <!-- ======================== Angular Frameworks files ======================= -->
+    <script src="public/app/js/bower_components/jquery/dist/jquery.js"></script>
+    <script src="public/app/js/bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="public/app/js/bower_components/datatables/media/js/dataTables.bootstrap.js"></script>
     <script src="public/app/js/angular/angular.js"></script>
     <script src="public/app/js/angular/angular-animate.js"></script>
     <script src="public/app/js/angular/angular-aria.js"></script>
@@ -43,6 +46,7 @@
     <script src="public/app/js/angular/angular-mocks.js"></script>
     <script src="public/app/js/angular/angular-sanitize.js"></script>
     <script src="public/app/js/angular/angular-scenario.js"></script>
+    <script src="public/app/js/bower_components/angular-datatables/dist/angular-datatables.js"></script>
 
 <!-- ======================== Angular Frameworks files ======================= -->
     <script src="public/app/fleetApp.js"></script>
@@ -255,7 +259,7 @@
     <span>Main Navigation</span>
 </li>
 <li class=" ">
-    <a href="#/dashboard" title="Dashboard" ng-click="setTitle('dashboard')" >
+    <a href="#/dashboard" id="dashboard" title="Dashboard" ng-click="setTitle('dashboard')" >
         <img src="public/app/img/dashboard.ico" class="menuicon">
         <span data-localize="sidebar.nav.DASHBOARD">DASHBOARD</span>
     </a>
@@ -636,7 +640,7 @@
         </div>
     </div>
     <!-- END Language list    -->
-    {{ moduleName }} <span style="font-size: 14px;color:#cccccc;font-weight:bolder;">/ {{ "sub module" }}</span>
+    {{ moduleName }} <span style="font-size: 14px;color:#cccccc;font-weight:bolder;">{{ subModule }}</span>
 </div>
 
 
@@ -651,7 +655,7 @@
 </footer>
 </div>
 <!-- =============== VENDOR SCRIPTS ===============-->
-<!--<!-- MODERNIZR-->/var/www/html/fleet/public/app/js/jquery/jquery.js-->
+<!--<!-- MODERNIZR-->
 <script src="public/app/css/theme/vendor/modernizr/modernizr.js"></script>
 <!-- JQUERY-->
 <script src="public/app/js/jquery/jquery.js"></script>
@@ -671,8 +675,8 @@
 <script src="public/app/css/theme/vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
 <!-- RTL demo-->
 <!--<script src="js/demo/demo-rtl.js"></script>-->
-<!--<!-- =============== PAGE VENDOR SCRIPTS ===============-->-->
-<!--<!-- SPARKLINE-->-->
+<!--<!-- =============== PAGE VENDOR SCRIPTS ===============-->
+<!--<!-- SPARKLINE-->
 <!--<script src="vendor/sparklines/jquery.sparkline.min.js"></script>-->
 <!-- FLOT CHART-->
 <script src="public/app/css/theme/vendor/Flot/jquery.flot.js"></script>
@@ -690,7 +694,7 @@
 <script src="public/app/css/theme/vendor/skycons/skycons.js"></script>
 <!-- DEMO-->
 <!--<script src="js/demo/demo-flot.js"></script>-->
-<!--<!-- =============== APP SCRIPTS ===============-->-->
+<!--<!-- =============== APP SCRIPTS ===============-->
 <!--<script src="js/app.js"></script>-->
 </body>
 
