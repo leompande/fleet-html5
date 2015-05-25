@@ -87,12 +87,27 @@
                 <h4 class="modal-title" id="myModalLabel">{{ modalTile }}</h4>
             </div>
             <div class="modal-body">
-
-                <div ng-if="edit">
-                    <vehicle-edit vehicle="currentVehicle"></vehicle-edit>
-                </div>
-                <div ng-if="details">
-                    <vehicle-details vehicle="currentVehicle"></vehicle-details>
+                <div>
+                    <table class="table table-responsive table-condensed table-striped table-bordered table-hover">
+                        <tr ><th>Registration Number : </th><td>{{ currentVehicle['registration_number'] }}</td></tr>
+                        <tr ><th>Vehicle Control Number : </th><td>{{ currentVehicle['vehicle_control_number'] }}</td></tr>
+                        <tr ><th>Model Number : </th><td>{{ currentVehicle['model_number'] }}</td></tr>
+                        <tr ><th>Body Type : </th><td>{{ currentVehicle['body_type'] }}</td></tr>
+                        <tr ><th>Color : </th><td>{{ currentVehicle['color'] }}</td></tr>
+                        <tr ><th>Class : </th><td>{{ currentVehicle['class'] }}</td></tr>
+                        <tr ><th>Year Of Manufacture : </th><td>{{ currentVehicle['year_of_manufacture'] }}</td></tr>
+                        <tr ><th>Chassis Number : </th><td>{{ currentVehicle['chassis_no'] }}</td></tr>
+                        <tr ><th>Engine Number : </th><td>{{ currentVehicle['engine_no'] }}</td></tr>
+                        <tr ><th>Engine Capacity : </th><td>{{ currentVehicle['engine_capacity'] }}</td></tr>
+                        <tr ><th>Fuel Used : </th><td>{{ currentVehicle['fuel_used'] }}</td></tr>
+                        <tr ><th>Number of Axles : </th><td>{{ currentVehicle['number_of_axles'] }}</td></tr>
+                        <tr ><th>Axle Distance : </th><td>{{ currentVehicle['axle_distance'] }}</td></tr>
+                        <tr ><th>Seat Capacity : </th><td>{{ currentVehicle['seat_capacity'] }}</td></tr>
+                        <tr ><th>Tare Weight : </th><td>{{ currentVehicle['tare_weight'] }}</td></tr>
+                        <tr ><th>Gross Weight : </th><td>{{ currentVehicle['gross_weight'] }}</td></tr>
+                        <tr ><th>Imprted From : </th><td>{{ currentVehicle['imported_from'] }}</td></tr>
+                        <tr ><th>Fuel Consuption : </th><td>{{ currentVehicle['fuel_consumption_rate'] }}</td></tr>
+                    </table>
                 </div>
             </div>
             <div class="modal-footer">

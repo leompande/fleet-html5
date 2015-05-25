@@ -14,7 +14,6 @@ angular.module("vehicleApp")
                 var inlineEditMenu = angular.element( document.querySelector( '#inlineEdit' ) );
                 var viewMoreMenu = angular.element( document.querySelector( '#viewMore' ) );
                 scope.modalTile = "";
-                scope.details = false;
                 scope.id = null;
 
 
@@ -50,7 +49,6 @@ angular.module("vehicleApp")
                    });
                    // edit objects inline through context menus
                    viewMoreMenu.on("click",function(){
-                       scope.details = true;
                    });
 
 
@@ -86,18 +84,18 @@ angular.module("vehicleApp")
             templateUrl:"public/app/modules/vehicle/directives/templates/customeTable.html"
         }
     })
-    .directive("vehicleDetails", function () {
-               return {
-            link: function (scope, element, attrs) {
-                console.log(scope.currentVehicle);
-            },
-            restrict:"E",
-            scope: {
-                vehicle:"=currentVehicle"
-            },
-            templateUrl:"public/app/modules/vehicle/directives/templates/vehicleDetails.html"
-        }
-    })
+    //.directive("vehicleDetails", function () {
+    //           return {
+    //        link: function (scope, element, attrs) {
+    //            console.log(scope.currentVehicle);
+    //        },
+    //        restrict:"E",
+    //        scope: {
+    //            vehicle:"=currentVehicle"
+    //        }
+    //        templateUrl:"public/app/modules/vehicle/directives/templates/vehicleDetails.html"
+    //    }
+    //})
     .directive("vehicleEdit", function () {
                return {
             link: function (scope, element, attrs) {
