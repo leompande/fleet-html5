@@ -47,11 +47,6 @@ angular.module("vehicleApp")
                            scope.updateInline({objectId:scope.id,edittedColumn:editedColumn,newValue:newValue});
                        }
                    });
-                   // edit objects inline through context menus
-                   viewMoreMenu.on("click",function(){
-                   });
-
-
                }
                scope.openLocation = function(event){
                    scope.offsetX =event.clientX;//(event.clientX-100);
@@ -68,42 +63,30 @@ angular.module("vehicleApp")
 
                 }
 
+                scope.ediVehicle = function(){
+                    scope.editVehicle({arg1:scope.id});
+                }
+
+                scope.delVehicle = function(){
+                    scope.deleteVehicle({arg1:scope.id});
+                }
+
+              //  scope.deleteVehicle({arg1:id});
+
+               // scope.viewMore();
 
 
             },
             restrict:"E",
             scope: {
-                update: "&edit",
+                editVehicle: "&edit",
                 updateInline: "&inline",
                 viewMore: "&more",
-                remove: "&delete",
+                deleteVehicle: "&delete",
                 tableData: "=list",
                 colums:"=colums",
                 titles:"=titles"
             },
             templateUrl:"public/app/modules/vehicle/directives/templates/customeTable.html"
-        }
-    })
-    //.directive("vehicleDetails", function () {
-    //           return {
-    //        link: function (scope, element, attrs) {
-    //            console.log(scope.currentVehicle);
-    //        },
-    //        restrict:"E",
-    //        scope: {
-    //            vehicle:"=currentVehicle"
-    //        }
-    //        templateUrl:"public/app/modules/vehicle/directives/templates/vehicleDetails.html"
-    //    }
-    //})
-    .directive("vehicleEdit", function () {
-               return {
-            link: function (scope, element, attrs) {
-
-            },
-            restrict:"E",
-            scope: {
-            },
-            templateUrl:"public/app/modules/vehicle/directives/templates/vehicleEdit.html"
         }
     });

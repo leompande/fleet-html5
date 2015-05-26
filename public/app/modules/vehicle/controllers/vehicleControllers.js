@@ -96,8 +96,16 @@ var vehicleApp = angular.module("vehicleApp");
 
         }
         $scope.editVehicle = function(id){
+            var updateVehicle = getObjectById($scope.vehicleList,id);
+            new $scope.vehiclesResource(updateVehicle).$update().then(function (updateVehicle) {
+                $scope.vehicleList.splice($scope.vehicleList.indexOf(updateVehicle), 1);
+            });
         }
         $scope.deleteVehicle = function(id){
+            var deletedVehicle = getObjectById($scope.vehicleList,id);
+            new $scope.vehiclesResource(deletedVehicle).$delete().then(function (deletedVehicle) {
+                $scope.vehicleList.splice($scope.vehicleList.indexOf(deletedVehicle), 1);
+            });
         }
         $scope.addVehicle  = function(newVehicle){
             $scope.vehicleObject.registration_number    = newVehicle.registration_number;
