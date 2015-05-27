@@ -8,7 +8,7 @@
                     <em class="icon-cloud-upload fa-3x"></em>
                 </div>
                 <div class="col-xs-8 pv-lg">
-                    <div class="h2 mt0">1700</div>
+                    <div class="h2 mt0">{{ vehicleList.length }}</div>
                     <div class="text-uppercase">Total Operable Vehicles</div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                     <em class="icon-globe fa-3x"></em>
                 </div>
                 <div class="col-xs-8 pv-lg">
-                    <div class="h2 mt0">700
+                    <div class="h2 mt0">{{ vehicleList.length }}
                     </div>
                     <div class="text-uppercase">Total On Road Vehicles</div>
                 </div>
@@ -37,7 +37,7 @@
                     <em class="icon-bubbles fa-3x"></em>
                 </div>
                 <div class="col-xs-8 pv-lg">
-                    <div class="h2 mt0">500</div>
+                    <div class="h2 mt0">{{ vehicleList.length }}</div>
                     <div class="text-uppercase">Total In Garage Vehicles</div>
                 </div>
             </div>
@@ -84,7 +84,36 @@
                 <div class="panel-title">Reservations statistics</div>
             </div>
             <div class="panel-body">
-                <div class="chart-spline flot-chart"></div>
+                <div role="tabpanel" class="panel panel-transparent">
+                    <!-- Nav tabs-->
+                    <ul role="tablist" class="nav nav-tabs nav-justified">
+                        <li role="presentation" class="active">
+                            <a href="dashboard_v3.html#utilization" aria-controls="utilization" role="tab" data-toggle="tab" class="bb0" aria-expanded="true">
+                                <em class="fa fa-clock-o fa-fw"></em>Vehicle Utilization Chart</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="dashboard_v3.html#reservation" aria-controls="reservation" role="tab" data-toggle="tab" class="bb0" aria-expanded="false">
+                                <em class="fa fa-money fa-fw"></em>Reservation Chart</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="dashboard_v3.html#consuption" aria-controls="consuption" role="tab" data-toggle="tab" class="bb0" aria-expanded="false">
+                                <em class="fa fa-money fa-fw"></em>Fuel Consuption Chart</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes-->
+                    <div class="tab-content p0 bg-white">
+
+                        <div id="utilization" role="tabpanel" class="tab-pane active">
+                            <highchart id="chart1" config="utilization"></highchart>
+                        </div>
+                        <div id="reservation" role="tabpanel" class="tab-pane">
+                            <highchart id="chart2" config="reservation"></highchart>
+                        </div>
+                        <div id="consuption" role="tabpanel" class="tab-pane">
+                            <highchart id="chart3" config="consuption"></highchart>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- END widget-->

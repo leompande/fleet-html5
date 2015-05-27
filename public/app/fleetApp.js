@@ -11,7 +11,7 @@
  */
 
 
-var fleetApp = angular.module("fleetApp",['ngRoute','dashboardModule','vehicleApp','driverApp']);
+var fleetApp = angular.module("fleetApp",['ngRoute','highcharts-ng','dashboardModule','vehicleApp','driverApp']);
 
     // fleet module configurations
    fleetApp.config(['$routeProvider', function($routeProvider) {
