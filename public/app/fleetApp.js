@@ -11,7 +11,7 @@
  */
 
 
-var fleetApp = angular.module("fleetApp",['ngRoute','highcharts-ng','dashboardModule','vehicleApp','driverApp']);
+var fleetApp = angular.module("fleetApp",['ngRoute','highcharts-ng','dashboardModule','vehicleApp','driverApp','reservationApp','angularjs-dropdown-multiselect']);
 
     // fleet module configurations
    fleetApp.config(['$routeProvider', function($routeProvider) {
@@ -35,6 +35,25 @@ var fleetApp = angular.module("fleetApp",['ngRoute','highcharts-ng','dashboardMo
                templateUrl: "public/app/modules/vehicle/views/index.html",
                controller: ""
        })
+           .when('/reservation', {
+               templateUrl: "public/app/modules/reservation/views/index.html",
+               controller: "reservationController"
+           })
+           //.when('/reservation/reservations', {
+           //    redirectTo: '/reservation'
+           //})
+           //.when('/reservation/reservedvehicles', {
+           //    //templateUrl: "public/app/modules/reservation/views/reservedvehicles.html",
+           //    controller: "reservedController"
+           //})
+           //.when('/reservation/checkouts', {
+           //   // templateUrl: "public/app/modules/reservation/views/checkouts.html",
+           //    controller: "checkoutController"
+           //})
+           //.when('/reservation/postponed', {
+           //    //templateUrl: "public/app/modules/reservation/views/postponed.html",
+           //    controller: "postponedController"
+           //})
        .when('/model', {
                template: '<h5>This is the vehicle models</h5>'
        })
