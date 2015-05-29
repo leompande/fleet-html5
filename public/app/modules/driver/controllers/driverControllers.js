@@ -28,9 +28,16 @@ driverApp.controller("driverController",['$scope','$route', '$http', '$resource'
     $scope.saveDriver = function(driver){
         new $scope.driversResource(driver).$create().then(function (newDriver) {
             $scope.driverList.push(newDriver);
+            $scope.listDrivers();
         });
     }
+    $scope.updateInline = function(objectId,edittedColumn,newValue){
+        var editedDriver = getObjectById($scope.driverList,objectId);
+        new $scope.driversResource(editedDriver).$update().then(function (editedDriver) {
+            //$scope.listDrivers();
+        });
 
+    }
 
     $scope.listDrivers = function(){
         var drivers = $scope.driversResource.query();
@@ -51,12 +58,17 @@ driverApp.controller("driverController",['$scope','$route', '$http', '$resource'
         var updateDriver = getObjectById($scope.driverList,id);
         new $scope.driversResource(updateDriver).$update().then(function (updateDriver) {
             $scope.driverList.splice($scope.driverList.indexOf(updateDriver), 1);
+            $scope.listDrivers();
         });
     }
 
 
     $scope.deleteDriver = function(id){
-
+        var deletedDriver = getObjectById($scope.driverList,id);
+        new $scope.driversResource(deletedDriver).$delete().then(function (deletedDriver) {
+            $scope.driverList.splice($scope.driverList.indexOf(deletedDriver), 1);
+            $scope.listDrivers();
+        });
     }
 
 

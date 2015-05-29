@@ -66,11 +66,13 @@ var vehicleApp = angular.module("vehicleApp");
                 $scope.failuremessage = false;
 
             });
+            $scope.listVehicles();
         }
         $scope.updateInline = function(objectId,edittedColumn,newValue){
             var editedVehicle = getObjectById($scope.vehicleList,objectId);
             new $scope.vehiclesResource(editedVehicle).$update().then(function (editedVehicle) {
             });
+            //$scope.listVehicles();
         }
 
         $scope.update = function(){
@@ -99,12 +101,14 @@ var vehicleApp = angular.module("vehicleApp");
             var updateVehicle = getObjectById($scope.vehicleList,id);
             new $scope.vehiclesResource(updateVehicle).$update().then(function (updateVehicle) {
                 $scope.vehicleList.splice($scope.vehicleList.indexOf(updateVehicle), 1);
+                $scope.listVehicles();
             });
         }
         $scope.deleteVehicle = function(id){
             var deletedVehicle = getObjectById($scope.vehicleList,id);
             new $scope.vehiclesResource(deletedVehicle).$delete().then(function (deletedVehicle) {
                 $scope.vehicleList.splice($scope.vehicleList.indexOf(deletedVehicle), 1);
+                $scope.listVehicles();
             });
         }
         $scope.addVehicle  = function(newVehicle){

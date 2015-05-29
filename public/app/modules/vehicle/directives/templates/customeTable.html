@@ -75,7 +75,9 @@
 
     }
 
-
+    tr:hover{
+        cursor: pointer;
+    }
 
 </style>
 <!-- Modal -->
@@ -324,7 +326,7 @@
 
                             <button type="button"  data-dismiss="modal" class="btn btn-danger" data-dismiss="modal">Cancel</button>
 
-                            <button type="button" class="btn btn-primary" ng-click="delVehicle()" >Confirm</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="delVehicle()" >Confirm</button>
                     </ul>
                 </div>
             </div>
@@ -351,8 +353,17 @@
             <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#deleteModal">Remove<i class="fa fa-trash-o pull-right"></i></a></li>
         </ul>
     </div>
+    <!--<tr ng-repeat="object in tableData " class="gradeX" ng-click="contextMenu($event,object)" title="click to edit or delete" >-->
+        <!--<td>{{$index+1}}</td><td ng-repeat="colum in colums"><span class="innerText text_{{object.id}}">{{ object[colum]}}</span>  <input  ng-change="change(object[colum],colum,'vehicle')" ng-model="object[colum]" class="innerInput input_{{object.id}}"  style="display: none" type="text" value="{{ object[colum] }}"></td>-->
+    <!--</tr>-->
     <tr ng-repeat="object in tableData " class="gradeX" ng-click="contextMenu($event,object)" title="click to edit or delete" >
-        <td>{{$index+1}}</td><td ng-repeat="colum in colums"><span class="innerText text_{{object.id}}">{{ object[colum]}}</span>  <input  ng-change="change(object[colum],colum,'vehicle')" ng-model="object[colum]" class="innerInput input_{{object.id}}"  style="display: none" type="text" value="{{ object[colum] }}"></td>
+        <td>{{$index+1}}</td>
+        <td ><span class="innerText text_{{object.id}}">{{ object.registration_number}}</span>  <input  ng-change="change(object.registration_number,'registration_number','vehicle')" ng-model="object.registration_number" class="innerInput input_{{object.id}}"  style="display: none" type="text" value="{{ object.registration_number }}"></td>
+        <td ><span class="innerText text_{{object.id}}">{{ object.vehicle_control_number}}</span>  <input  ng-change="change(object.vehicle_control_number,'vehicle_control_number','vehicle')" ng-model="object.vehicle_control_number" class="innerInput input_{{object.id}}"  style="display: none" type="text" value="{{ object.vehicle_control_number }}"></td>
+        <td ><span class="innerText text_{{object.id}}">{{ object.body_type}}</span>  <input  ng-change="change(object.body_type,'body_type','vehicle')" ng-model="object.body_type" class="innerInput input_{{object.id}}"  style="display: none" type="text" value="{{ object.body_type }}"></td>
+        <td ><span class="innerText text_{{object.id}}">{{ object.fuel_used}}</span>  <input  ng-change="change(object.fuel_used,'fuel_used','vehicle')" ng-model="object.fuel_used" class="innerInput input_{{object.id}}"  style="display: none" type="text" value="{{ object.fuel_used }}"></td>
+        <td ><span class="innerText text_{{object.id}}">{{ object.fuel_consumption_rate}}</span>  <input  ng-change="object.fuel_consumption_rate,colum,'vehicle')" ng-model="object.fuel_consumption_rate" class="innerInput input_{{object.id}}"  style="display: none" type="text" value="{{ object.fuel_consumption_rate }}"></td>
+        <td ><span class="innerText text_{{object.id}}">{{ object.seat_capacity}}</span>  <input  ng-change="change(object.seat_capacity,colum,'vehicle')" ng-model="object.seat_capacity" class="innerInput input_{{object.id}}"  style="display: none" type="text" value="{{ object.seat_capacity }}"></td>
     </tr>
     </tbody>
 </table>
