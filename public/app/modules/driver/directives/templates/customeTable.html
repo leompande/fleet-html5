@@ -75,9 +75,245 @@
 
     }
 </style>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" style="width:1034px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{ modalTile }}</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <table class="table table-responsive table-condensed table-striped table-bordered table-hover">
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button ng-if="save" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" style="width:1034px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="editModalLabel">EDIT:  {{ modalTile }}</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+
+                    <form  id="edit-example-form" ng-submit="ediDriver()" novalidate="novalidate">
+
+                        <div role="application" class="wizard clearfix" id="steps-uid-0">
+                            <div class="content clearfix">
+                                <table class="table table-responsive" style="border-top:3px!important;">
+                                    <tbody>
+                                    <tr>
+                                        <td >
+                                            <div class="form-group">
+                                                <label for="reg_number">Registration Number :</label>
+                                                <input type="text" class="form-control" id="reg_number" ng-model="currentDriver.registration_number" placeholder="Registration Number" required>
+                                            </div>
+                                        </td>
+                                        <td colspan="2">
+                                            <div class="form-group">
+                                                <label for="card_number">Motor Driver card number :</label>
+                                                <input type="text" class="form-control" id="card_number" ng-model="currentDriver.Driver_control_number" placeholder="Motor Driver card number" required>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="make">Make :</label>
+                                                <input type="text" class="form-control" id="make" ng-model="currentDriver.make_id" placeholder="Make">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="model">Model :</label>
+                                                <input type="text" class="form-control" id="model" ng-model="currentDriver.modal_id" placeholder="Model">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="model_number">Model Number :</label>
+                                                <input type="text" class="form-control" id="model_number" ng-model="currentDriver.model_number" placeholder="Model Number">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="make">Body:</label>
+                                                <input type="text" class="form-control" id="body_type" ng-model="currentDriver.body_type" placeholder="Body Type">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="model">Color :&nbsp;&nbsp;</label>
+                                                <input type="text" class="form-control" id="color" ng-model="currentDriver.color" placeholder="Color">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="model_number">Driver class :</label>
+                                                <input type="text" class="form-control" id="class" ng-model="currentDriver.class" placeholder="Class">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="fuel">Fuel :*</label>
+                                                <input type="text" class="form-control" id="fuel" ng-model="currentDriver.fuel_used" placeholder="Fuel" required>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="engine_number">Engine  :*</label>
+                                                <input type="text" class="form-control" id="engine_number" ng-model="currentDriver.engine_no" placeholder="Engine Number">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="engine_capacity">Eng Capacity :</label>
+                                                <input type="text" class="form-control" id="engine_capacity" ng-model="currentDriver.engine_capacity" placeholder="Engine capacity">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="usage">Usage :</label>
+                                                <input type="text" class="form-control" id="usage" ng-model="currentDriver.usage_id" placeholder="Usage">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="seat_capacity">Seat capacity :</label>
+                                                <input type="text" class="form-control" id="seat_capacity" ng-model="currentDriver.seat_capacity" placeholder="Seat capacity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="number_axles">Number Of Axles :</label>
+                                                <input type="text" class="form-control" id="number_axles" ng-model="currentDriver.number_of_axles" placeholder="Number Of Axles">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="tare_weight">Tare Weight :</label>
+                                                <input type="text" class="form-control" id="tare_weight" ng-model="currentDriver.tare_weight" placeholder="Tare Weight">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="gross_weight">Gross Weight :</label>
+                                                <input type="text" class="form-control" id="gross_weight" ng-model="currentDriver.gross_weight" placeholder="Gross Weight">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="imported_from">Imported from :</label>
+                                                <input type="text" class="form-control" id="imported_from" ng-model="currentDriver.imported_from" placeholder="Imported from">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="axle_distance">Axle Distance :</label>
+                                                <input type="text" class="form-control" id="axle_distance" ng-model="currentDriver.axle_distance" placeholder="Axle Distance">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label for="year_manufactured">Year Manufactured :</label>
+                                                <input type="text" class="form-control" id="year_manufactured" ng-model="currentDriver.year_of_manufacture" placeholder="Year Manufactured">
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
 
-<table id="datatable2" datatable="ng" dt-options="showCase.dtOptions" dt-column-defs="showCase.dtColumnDefs" class="table table-striped table-hover table-condensed dataTable">
+                            <div class="actions clearfix">
+                                <div class="alert alert-success alert-dismissible" ng-if="successmessage" role="alert" style="font-weight: bolder;text-align: left;">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    {{ "Congratulations!!... Registered successfully." }}
+                                </div>
+                                <div class="alert alert-danger alert-dismissible" ng-if="failuremessage" role="alert" style="font-weight: bolder;text-align: left;">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    {{ "Sorry!!... Registration failed." }}
+                                </div>
+                                <ul role="menu" aria-label="Pagination">
+                                    <li class="disabled" aria-disabled="true">
+                                        <button ng-click="changeState('list')" class="btn btn-default" data-dismiss="modal">List</button>
+                                    </li>
+                                    <li aria-hidden="false" aria-disabled="false">
+                                        <button type="button"  class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                    </li>
+                                    <li aria-hidden="false" style="display: block;">
+                                        <button type="submit" class="btn btn-primary" >Save Changes</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="deleteModalLabel">DELETE:  {{ modalTile }}</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <p>Are you sure you want to delete Driver with <b>Reg # </b>{{ currentDriver.registration_number }} <b>created at</b>  {{ currentDriver.created_at }}</p>
+
+                </div>
+                <div class="actions clearfix">
+                    <div class="alert alert-success alert-dismissible" ng-if="successmessage" role="alert" style="font-weight: bolder;text-align: left;">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{ "Congratulations!!... Registered successfully." }}
+                    </div>
+                    <div class="alert alert-danger alert-dismissible" ng-if="failuremessage" role="alert" style="font-weight: bolder;text-align: left;">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{ "Sorry!!... Registration failed." }}
+                    </div>
+
+                    <button type="button"  data-dismiss="modal" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+
+                    <button type="button" class="btn btn-primary" ng-click="delDriver()" >Confirm</button>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table id="datatable2" datatable="ng" dt-options="showCase.dtOptions" dt-column-defs="showCase.dtColumnDefs" class="table table-striped table-hover table-condensed dataTable" >
     <thead>
     <tr>
         <th>#</th> <th ng-repeat="title in titles">{{ title }}</th>
@@ -85,23 +321,15 @@
     </thead>
     <tbody>
     <div class="dropdown drops" >
-        <!--<a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">-->
-
-        <!--</a>-->
         <ul class="dropdown-menus" role="menu" aria-labelledby="dropdownMenu1" >
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">View More<i class="fa fa-search pull-right"></i></a></li>
-            <!--<li role="presentation"><a role="menuitem" tabindex="-1"  id="inlineEdit">Inline Edit<i class="fa fa-eraser pull-right"></i></a></li>-->
-            <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="editDriver(objectToplayWith)">Edit<i class="fa fa-edit pull-right"></i></a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Remove<i class="fa fa-trash-o pull-right"></i></a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" id="viewMore" data-toggle="modal" data-target="#myModal">View More<i class="fa fa-search pull-right"></i></a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" id="inlineEdit">Inline Edit<i class="fa fa-eraser pull-right"></i></a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#editModal" >Edit<i class="fa fa-edit pull-right"></i></a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#deleteModal">Remove<i class="fa fa-trash-o pull-right"></i></a></li>
         </ul>
     </div>
-    <tr ng-repeat="object in tableData " class="gradeX" ng-click="contextMenu($event,object)" >
-
-        <td>{{$index+1}}</td><td ng-repeat="colum in colums "><span class="innerText text_{{object.id}}">{{ object[colum] | filter: searchText }}</span>  <input class="innerInput input_{{object.id}}" style="display: none" type="text" value="{{ object[colum] }}"></td>
+    <tr ng-repeat="object in tableData " class="gradeX" ng-click="contextMenu($event,object)" title="click to edit or delete" >
+        <td>{{$index+1}}</td><td ng-repeat="colum in colums"><span class="innerText text_{{object.id}}">{{ object[colum]}}</span>  <input  ng-change="change(object[colum],colum,'Driver')" ng-model="object[colum]" class="innerInput input_{{object.id}}"  style="display: none" type="text" value="{{ object[colum] }}"></td>
     </tr>
     </tbody>
 </table>
-
-<script>
-
-</script>

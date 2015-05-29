@@ -36,20 +36,51 @@ class DriverController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
 		$driver = new Driver();
 
-        $driver->first_name = "";
-        $driver->middle_name = "";
-        $driver->last_name = "";
-        $driver->gender = "";
-        $driver->birthday = "";
-        $driver->phone = "";
-        $driver->email = "";
-        $driver->current_address = "";
-        $driver->employment_date = "";
-        $driver->driving_licence_class = "";
+        foreach ( $request->all() as $column => $value ) {
+            echo $column."=>".$value;
+
+            switch ($column) {
+                case "first_name":
+                    $driver->first_name        = $value;
+                    break;
+                case "middle_name":
+                    $driver->middle_name     = $value;
+                    break;
+                case "last_name":
+                    $driver->last_name           = $value;
+                    break;
+                case "gender":
+                    $driver->gender               = $value;
+                    break;
+                case "birthday":
+                    $driver->birthday                  = $value;
+                    break;
+                case "phone":
+                    $driver->phone                     = $value;
+                    break;
+                case "email":
+                    $driver->email                      = $value;
+                    break;
+                case "current_address":
+                    $driver->current_address        = $value;
+                    break;
+                case "employment_date":
+                    $driver->employment_date                 = $value;
+                    break;
+                case "driving_licence_class":
+                    $driver->driving_licence_class                  = $value;
+                    break;
+                case "engine_capacity":
+                    $driver->engine_capacity            = $value;
+                    break;
+            }
+
+        }
+
 
         $driver->save();
 	}
@@ -83,20 +114,48 @@ class DriverController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request,$id)
 	{
         $driver = Driver::find($id);
 
-        $driver->first_name = "";
-        $driver->middle_name = "";
-        $driver->last_name = "";
-        $driver->gender = "";
-        $driver->birthday = "";
-        $driver->phone = "";
-        $driver->email = "";
-        $driver->current_address = "";
-        $driver->employment_date = "";
-        $driver->driving_licence_class = "";
+        foreach ( $request->all() as $column => $value ) {
+            switch ($column) {
+                case "first_name":
+                    $driver->first_name        = $value;
+                    break;
+                case "middle_name":
+                    $driver->middle_name       = $value;
+                    break;
+                case "last_name":
+                    $driver->last_name         = $value;
+                    break;
+                case "gender":
+                    $driver->gender            = $value;
+                    break;
+                case "birthday":
+                    $driver->birthday          = $value;
+                    break;
+                case "phone":
+                    $driver->phone             = $value;
+                    break;
+                case "class":
+                    $driver->class             = $value;
+                    break;
+                case "email":
+                    $driver->email             = $value;
+                    break;
+                case "current_address":
+                    $driver->current_address   = $value;
+                    break;
+                case "employment_date":
+                    $driver->employment_date   = $value;
+                    break;
+                case "driving_licence_class":
+                    $driver->driving_licence_class      = $value;
+                    break;
+            }
+
+        }
 
         $driver->save();
 	}

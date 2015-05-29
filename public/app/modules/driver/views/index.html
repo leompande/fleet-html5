@@ -36,7 +36,7 @@
                     <div role="tabpanel" class="tab-pane {{ listTabState }}" >
                         <div >
 
-                            <custome-driver-table list="driverList" colums="shownColumn" titles="shownTitles" ></custome-driver-table>
+                            <custome-driver-table list="driverList" colums="shownColumn" titles="shownTitles" edit="editDriver(arg1)" inline="updateInline(objectId,edittedColumn,newValue)" delete="deleteDriver(arg1)" more="viewMore()"></custome-driver-table>
 
                         </div>
                     </div>
@@ -73,19 +73,19 @@
                                             <td>
                                                 <div class="form-group">
                                                     <label for="gender">Gender :</label>
-                                                    <input type="text" class="form-control" id="gender" placeholder="Gender">
+                                                    <input type="text" class="form-control" id="gender" ng-model="newDriver.gender" placeholder="Gender">
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
                                                     <label for="birthday">Birth Day :</label>
-                                                    <input type="text" class="form-control" id="birthday" placeholder="Birth day">
+                                                    <input type="text" class="form-control" id="birthday" ng-model="newDriver.birthday" placeholder="Birth day">
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
                                                     <label for="employment_date">Employment Date :</label>
-                                                    <input type="text" class="form-control" id="employment_date" placeholder="Employment Date">
+                                                    <input type="text" class="form-control" id="employment_date" ng-model="newDriver.employment_date" placeholder="Employment Date">
                                                 </div>
                                             </td>
                                         </tr>
@@ -93,19 +93,19 @@
                                             <td>
                                                 <div class="form-group">
                                                     <label for="phone">Phone:</label>
-                                                    <input type="text" class="form-control" id="phone" placeholder="Phone">
+                                                    <input type="text" class="form-control" id="phone" ng-model="newDriver.phone" placeholder="Phone">
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
                                                     <label for="email">Email :&nbsp;&nbsp;</label>
-                                                    <input type="text" class="form-control" id="email" placeholder="Email">
+                                                    <input type="text" class="form-control" id="email" ng-model="newDriver.email" placeholder="Email">
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
                                                     <label for="current_address">Current Address :</label>
-                                                    <input type="text" class="form-control" id="current_address" placeholder="Current Address">
+                                                    <input type="text" class="form-control" id="current_address" ng-model="newDriver.current_address" placeholder="Current Address">
                                                 </div>
                                             </td>
                                         </tr>
@@ -113,7 +113,7 @@
                                             <td>
                                                 <div class="form-group">
                                                     <label for="driving_licence_class">Licence :</label>
-                                                    <select type="text" class="form-control" id="driving_licence_class"  >
+                                                    <select type="text" class="form-control" id="driving_licence_class" ng-model="newDriver.driving_licence_class"  >
                                                         <option>Class A</option>
                                                         <option>Class B</option>
                                                         <option>Class C</option>

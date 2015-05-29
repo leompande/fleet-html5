@@ -35,7 +35,7 @@ var vehicleApp = angular.module("vehicleApp");
         $scope.shownTitles    = {0:'Reg Number',1:'Control Number',2:'Body Type',3:'Fuel',4:'Consumption Rate',5:'Seat Capacity'};
         $scope.listTabState   = "active";
         $scope.addTabState    = null;
-        $scope.vehiclesResource = $resource(baseUrlVehicles + ":id", { id: "@id" },{ create: { method: "POST" }, save: { method: "PUT" },update: {method:'PUT'}});
+        $scope.vehiclesResource = $resource(baseUrlVehicles + ":id", { id: "@id" },{ create: { method: "POST" }, save: { method: "PUT" },update: {method:'PUT'},delete: {method:'DELETE'}});
 
         $scope.saveVehicle = function(vehicle){
             new $scope.vehiclesResource(vehicle).$create().then(function (newVehicle) {

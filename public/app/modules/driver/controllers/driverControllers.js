@@ -21,21 +21,19 @@ driverApp.controller("driverController",['$scope','$route', '$http', '$resource'
     $scope.shownTitles = {0:'First Name',1:'Middle Name',2:'Last Name',3:'Gender',4:'Phone',5:'Email',5:'Address',5:'Date Employed',5:'Email',5:'ELicence'};
     $scope.listTabState = "active";
     $scope.addTabState = null;
-    $scope.driversResource = $resource(baseUrlDrivers + ":id", { id: "@id" },{ create: { method: "POST" }, save: { method: "PUT" }});
+    $scope.driversResource = $resource(baseUrlDrivers + ":id", { id: "@id" },{ create: { method: "POST" }, save: { method: "PUT" },update: {method:'PUT'},delete: {method:'DELETE'}});
 
 
 
     $scope.saveDriver = function(driver){
         new $scope.driversResource(driver).$create().then(function (newDriver) {
             $scope.driverList.push(newDriver);
-
         });
     }
 
 
     $scope.listDrivers = function(){
         var drivers = $scope.driversResource.query();
-
         drivers.$promise.then(function (data) {
             $scope.driverList = data;
         });
@@ -50,7 +48,10 @@ driverApp.controller("driverController",['$scope','$route', '$http', '$resource'
 
 
     $scope.editDriver = function(id){
-
+        var updateDriver = getObjectById($scope.driverList,id);
+        new $scope.driversResource(updateDriver).$update().then(function (updateDriver) {
+            $scope.driverList.splice($scope.driverList.indexOf(updateDriver), 1);
+        });
     }
 
 
@@ -60,12 +61,28 @@ driverApp.controller("driverController",['$scope','$route', '$http', '$resource'
 
 
     $scope.addDriver  = function(newDriver){
-        $scope.driverObject.registration_number    = newDriver.registration_number;
-        $scope.driverObject.driver_control_number = newDriver.Driver_control_number;
-        $scope.driverObject.first_registered       = newDriver.first_registered;
-        $scope.driverObject.model_number           = newDriver.model_number;
+        $scope.driverObject.first_name      = newDriver.first_name;
+        $scope.driverObject.middle_name     = newDriver.middle_name;
+        $scope.driverObject.last_name       = newDriver.last_name;
+        $scope.driverObject.birthday        = newDriver.birthday;
+        $scope.driverObject.gender          = newDriver.gender;
+        $scope.driverObject.phone           = newDriver.phone;
+        $scope.driverObject.email           = newDriver.email;
+        $scope.driverObject.current_address = newDriver.current_address;
+        $scope.driverObject.employment_date = newDriver.employment_date;
+        $scope.driverObject.driving_licence_class = newDriver.driving_licence_class;
 
         $scope.saveDriver($scope.driverObject);
+        $scope.newDriver.first_name      = "";
+        $scope.newDriver.middle_name     = "";
+        $scope.newDriver.last_name       = "";
+        $scope.newDriver.birthday        = "";
+        $scope.newDriver.gender          = "";
+        $scope.newDriver.phone           = "";
+        $scope.newDriver.email           = "";
+        $scope.newDriver.current_address = "";
+        $scope.newDriver.employment_date = "";
+        $scope.newDriver.driving_licence_class = "";
 
     }
 
@@ -96,5 +113,11 @@ driverApp.controller("driverController",['$scope','$route', '$http', '$resource'
     }
 
     $scope.listDrivers();
+    function getObjectById(array,id){
+        for (var d = 0, len = array.length; d < len; d += 1) {
+            if (array[d].id === id) {
+                return array[d];
+            }
+        }}
 
 }]);
