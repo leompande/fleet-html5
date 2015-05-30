@@ -63,8 +63,8 @@
     div.bhoechie-tab-content{
         background-color: #ffffff;
          /*border: 1px solid #eeeeee;*/
-        padding-left: 20px;
-        padding-top: 10px;
+        /*padding-left: 20px;*/
+        /*padding-top: 10px;*/
     }
 
     div.bhoechie-tab div.bhoechie-tab-content:not(.active){
@@ -123,9 +123,9 @@
     div.bhoechie-tab-menu div.list-group>a.active:after{
         content: '';
         position: absolute;
-        left: 100%;
-        top: 50%;
-        margin-top: -13px;
+        /*left: 100%;*/
+        /*top: 50%;*/
+        /*margin-top: -13px;*/
         border-left: 0;
         border-bottom: 13px solid transparent;
         border-top: 13px solid transparent;
@@ -135,8 +135,8 @@
     div.bhoechie-tab-content{
         background-color: #ffffff;
         /* border: 1px solid #eeeeee; */
-        padding-left: 20px;
-        padding-top: 10px;
+        /*padding-left: 20px;*/
+        /*padding-top: 10px;*/
     }
 
     div.bhoechie-tab div.bhoechie-tab-content:not(.active){
@@ -159,13 +159,13 @@
 <div  ng-controller="reservationsController">
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-9 bhoechie-tab-container">
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 bhoechie-tab-menu">
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 bhoechie-tab-menu" style="width:40px;">
             <div class="list-group">
-                <a href="#" class="list-group-item active text-center">
-                    Reservation Chart
+                <a href="#" ng-click="views('Chart')" class="list-group-item active text-center" style="text-align: left;width:40px;">
+                   Chart
                 </a>
-                <a href="#" class="list-group-item text-center">
-                    Reservation Table
+                <a href="#" ng-click="views('Table')" class="list-group-item text-center" style="text-align: left;width:40px;">
+                   Table
                 </a>
             </div>
         </div>
@@ -186,12 +186,31 @@
                     </select>
                             </div>
                 </div>
-                <div class="row"><h3 ng-modal="chartTitle">{{chartTitle}}</h3></div>
-                <div class="row"></div>
+                <div class="row" style="text-align: center;"><div class="col-md-2"><a style="margin-top: 10px;" class="btn btn-md btn-primary">Add Reservation</a></div><div class="col-md-9"><h3 ng-modal="chartTitle">{{chartTitle}}</h3></div></div>
+                <div class="row">
+                <reservation-chart vehicles="vehicles" range="range" classChart="classChart"></reservation-chart>
+                </div>
                  </div>
             <!-- train section -->
             <div class="bhoechie-tab-content">
-                Reservation table
+                <div class="row">
+                    <div class="col-md-6">
+                        <select ng-model="periodYear" ng-click="periodChange()"  class="form-control ">
+                            <!--<option ng-selected="true" disabled>-- Select Year --</option>-->
+                            <option ng-repeat="year in years">{{year}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <select ng-model="periodMonth" ng-click="periodChange()" class="form-control">
+                            <!--<option ng-selected="true" disabled>-- Select Month --</option>-->
+                            <option ng-repeat="month in months">{{month}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row" style="text-align: center;"><div class="col-md-2"><a style="margin-top: 10px;" class="btn btn-md btn-primary">Add Reservation</a></div><div class="col-md-9"><h3 ng-modal="chartTitle">{{chartTitle}}</h3></div></div>
+                <div class="row">
+                    <reservation-table vehicles="vehicles" range="range" reservations="reservations"></reservation-table>
+                </div>
             </div>
 
         </div>
