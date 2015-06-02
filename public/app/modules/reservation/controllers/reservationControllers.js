@@ -14,6 +14,7 @@ dashboardModule.controller("reservationController",['$scope','$route', '$http', 
             $scope.reservedClass = '';
             $scope.checkoutClass = '';
             $scope.postponedClass = '';
+            $scope.cancelledClass = '';
             $scope.urlInclude = "public/app/modules/reservation/views/reservations.html";
         }
         if(submenu=='Reserved Vehicles'){
@@ -21,6 +22,7 @@ dashboardModule.controller("reservationController",['$scope','$route', '$http', 
             $scope.reservedClass = 'active';
             $scope.checkoutClass = '';
             $scope.postponedClass = '';
+            $scope.cancelledClass = '';
             $scope.urlInclude = "public/app/modules/reservation/views/reservedvehicles.html";
         }
         if(submenu=='Postponed Reservations'){
@@ -28,6 +30,7 @@ dashboardModule.controller("reservationController",['$scope','$route', '$http', 
             $scope.reservedClass = '';
             $scope.checkoutClass = '';
             $scope.postponedClass = 'active';
+            $scope.cancelledClass = '';
             $scope.urlInclude = "public/app/modules/reservation/views/postponed.html";
         }
         if(submenu=='CheckOuts'){
@@ -35,7 +38,16 @@ dashboardModule.controller("reservationController",['$scope','$route', '$http', 
             $scope.reservedClass = '';
             $scope.checkoutClass = 'active';
             $scope.postponedClass = '';
+            $scope.cancelledClass = '';
             $scope.urlInclude = "public/app/modules/reservation/views/checkouts.html";
+        }
+        if(submenu=='Cancelled Reservations'){
+            $scope.reservationClass = '';
+            $scope.reservedClass = '';
+            $scope.checkoutClass = '';
+            $scope.postponedClass = '';
+            $scope.cancelledClass = 'active';
+            $scope.urlInclude = "public/app/modules/reservation/views/cancelled.html";
         }
 
     }
@@ -207,4 +219,8 @@ dashboardModule.controller("checkoutController",['$scope','$route', '$http', '$r
 
 dashboardModule.controller("postponedController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder){
     
+}]);
+
+dashboardModule.controller("cancelledController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder){
+
 }]);

@@ -288,9 +288,9 @@
             <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#deleteModal">Remove<i class="fa fa-trash-o pull-right"></i></a></li>
         </ul>
     </div>
-    <!--tr ng-repeat="object in tableData " class="gradeX" ng-click="contextMenu($event,object)" title="click to edit or delete" >
-        <td>{{$index+1}}</td><td ng-repeat="colum in colums"><span class="innerText text_{{object.id}}">{{ object[colum]}}</span>  <input  ng-change="change(object[colum],colum,'Driver')" ng-model="object[colum]" class="innerInput input_{{object.id}}"  style="display: none" type="text" value="{{ object[colum] }}"></td>
-    </tr-->
+    <!--<tr ng-repeat="object in tableData " class="gradeX" ng-click="contextMenu($event,object)" title="click to edit or delete" >-->
+        <!--<td>{{$index+1}}</td><td ng-repeat="colum in colums"><span class="innerText text_{{object.id}}">{{ object[colum]}}</span>  <input  ng-change="change(object[colum],colum,'Driver')" ng-model="object[colum]" class="innerInput input_{{object.id}}"  style="display: none" type="text" value="{{ object[colum] }}"></td>-->
+    <!--</tr>-->
     <tr ng-repeat="object in tableData " class="gradeX" ng-click="contextMenu($event,object)" title="click to edit or delete" >
         <td>{{$index+1}}</td>
         <td ><span class="innerText text_{{object.id}}">{{ object.first_name}}</span>  <input  ng-change="change(object.first_name,'first_name','Driver')" ng-model="object.first_name" class="innerInput input_{{object.id}}"  style="display: none" type="text" value="{{ object.first_name }}"></td>

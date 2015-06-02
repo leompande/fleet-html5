@@ -30,16 +30,12 @@
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane {{ listTabState }}" >
                         <div >
-
                             <custome-driver-table list="driverList" colums="shownColumn" titles="shownTitles" edit="editDriver(arg1)" inline="updateInline(objectId,edittedColumn,newValue)" delete="deleteDriver(arg1)" more="viewMore()"></custome-driver-table>
-
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane {{ addTabState }}" >
 
-
                         <form  id="example-form" ng-submit="addDriver(newDriver)" novalidate="novalidate">
-
                             <div role="application" class="wizard clearfix" id="steps-uid-0">
                                 <div class="content clearfix">
                                     <table class="table table-responsive" style="border-top:3px!important;">
