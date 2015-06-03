@@ -56,9 +56,9 @@
         </div>
         <div class="panel-footer">
             <p class="text-muted">
-                <em class="fa fa-upload fa-fw"></em>
+                <a title="download reservation report for this month"><em class="fa fa-download fa-fw"></em></a>
                 <span>This Month</span>
-                <span class="text-dark">1000 Reservations</span>
+                <span class="text-dark"><span style="font-weight: bolder;font-size: 15px;">{{(reservations|filter:{cancelled:'0'}).length}}</span> Reservations</span>
             </p>
         </div>
     </div>
@@ -104,12 +104,57 @@
                     <div class="tab-content p0 bg-white">
 
                         <div id="utilization" role="tabpanel" class="tab-pane active">
+                           <div class="col-md-12" style="margin-top: 10px;">
+                               <div class="col-md-1">
+                                   <select class="form-control">
+                                       <option selected>January</option>
+                                       <option>February</option>
+                                   </select>
+                               </div>
+                               <div class="col-md-1">
+                                   <select class="form-control">
+                                       <option selected>2015</option>
+                                       <option>2014</option>
+                                   </select>
+                               </div>
+                               <div class="col-md-10"></div>
+                           </div>
                             <highchart id="chart1" config="utilization"></highchart>
                         </div>
                         <div id="reservation" role="tabpanel" class="tab-pane">
+                            <div class="col-md-12" style="margin-top: 10px;">
+                                <div class="col-md-1">
+                                    <select class="form-control">
+                                        <option selected>January</option>
+                                        <option>February</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+                                    <select class="form-control">
+                                        <option selected>2015</option>
+                                        <option>2014</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-10"></div>
+                            </div>
                             <highchart id="chart2" config="reservation"></highchart>
                         </div>
                         <div id="consuption" role="tabpanel" class="tab-pane">
+                            <div class="col-md-12" style="margin-top: 10px;">
+                                <div class="col-md-1">
+                                    <select class="form-control">
+                                        <option selected>January</option>
+                                        <option>February</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+                                    <select class="form-control">
+                                        <option selected>2015</option>
+                                        <option>2014</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-10"></div>
+                            </div>
                             <highchart id="chart3" config="consuption"></highchart>
                         </div>
                     </div>

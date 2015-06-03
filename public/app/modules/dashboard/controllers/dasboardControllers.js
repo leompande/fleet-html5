@@ -3,7 +3,7 @@
  */
 var dashboardModule = angular.module("dashboardModule");
 
-dashboardModule.controller("dashboardController",['$scope','$route', '$http', '$resource', 'baseUrlVehicles','DTOptionsBuilder', 'DTColumnDefBuilder',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder){
+dashboardModule.controller("dashboardController",['$scope','$route', '$http', '$resource', 'baseUrlVehicles','DTOptionsBuilder', 'DTColumnDefBuilder','ReservationService',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder,ReservationService){
     $scope.setSubModule('');
     $scope.vehicleList = 10;
     $scope.vehiclesResource = $resource(baseUrlVehicles + ":id", { id: "@id" },{ create: { method: "POST" }, save: { method: "PUT" },update: {method:'PUT'}});
@@ -172,4 +172,11 @@ dashboardModule.controller("dashboardController",['$scope','$route', '$http', '$
         }]
     }
 
+
+    /*
+     * List reservations from reservation service
+     * */
+    ReservationService.listReservations().then(function(data){
+        $scope.reservations = data;
+    });
 }]);

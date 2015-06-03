@@ -3,10 +3,12 @@
  */
 var dashboardModule = angular.module("reservationApp");
 
-dashboardModule.controller("reservationController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder){
+dashboardModule.controller("reservationController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder','ReservationService',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder,ReservationService){
     $scope.reservationModuleTitle = "VEHICLE RESERVATIONS";
     $scope.reservationClass = 'active';
+    $scope.reservations = 'active';
     $scope.urlInclude = "public/app/modules/reservation/views/reservations.html";
+    $scope.modalTile = null;
     $scope.controlSubmenu = function(submenu){
         $scope.reservationModuleTitle = 'VEHICLE RESERVATIONS / '+submenu;
         if(submenu=='Reservations'){
@@ -51,6 +53,31 @@ dashboardModule.controller("reservationController",['$scope','$route', '$http', 
         }
 
     }
+    $scope.addReservationForm = function(){
+        $scope.modalTile = "ADDING NEW VEHICLE RESERVATION"
+    }
+
+    $scope.addReservation = function(newReservation){
+        if(newReservation){
+           ReservationService.addReservations(newReservation).then(function(data){
+
+           });
+           ReservationService.listReservations().then(function(data){
+                $scope.reservation = data;
+            });
+        }
+
+    }
+    /*
+    * List reservations from reservation service
+    * */
+    ReservationService.listReservations().then(function(data){
+            $scope.reservation = data;
+        });
+    ReservationService.listReserveVehicles().then(function(data){
+            $scope.reservedvehicles = data;
+        });
+
 }]);
 
 
@@ -217,10 +244,14 @@ dashboardModule.controller("checkoutController",['$scope','$route', '$http', '$r
 }]);
 
 
-dashboardModule.controller("postponedController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder){
-    
+dashboardModule.controller("postponedController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder','ReservationService',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder,ReservationService){
+    ReservationService.listReservations().then(function(data){
+        $scope.postponed = data;
+    });
 }]);
 
-dashboardModule.controller("cancelledController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder){
-
+dashboardModule.controller("cancelledController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder','ReservationService',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder,ReservationService){
+    ReservationService.listReservations().then(function(data){
+        $scope.cancelled = data;
+    });
 }]);

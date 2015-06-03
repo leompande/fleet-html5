@@ -22,6 +22,8 @@ Route::resource('fuels','FuelController');
 Route::resource('makes','MakeController');
 Route::resource('modals','ModalController');
 Route::resource('users','UserController');
+Route::resource('reservations','ReservationController');
+Route::resource('reservedvehicles','ReservedvehicleController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

@@ -19,6 +19,7 @@ class CreateReservedVehiclesTable extends Migration {
             $table->integer('reservation_id');
             $table->integer('driver_id');
             $table->boolean('postponed');
+            $table->boolean('cancelled');
 			$table->timestamps();
 		});
 	}

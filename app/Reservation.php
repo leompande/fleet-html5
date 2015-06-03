@@ -14,7 +14,7 @@ class Reservation extends Model {
 
     public function reservedvehicles(){
 
-        return $this->hasMany('App\Reservedehicle');
+        return $this->hasMany('App\Reservedvehicle');
 
     }
 

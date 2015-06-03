@@ -11,7 +11,7 @@
  */
 
 
-var fleetApp = angular.module("fleetApp",['ngRoute','highcharts-ng','dashboardModule','vehicleApp','driverApp','reservationApp','angularjs-dropdown-multiselect']);
+var fleetApp = angular.module("fleetApp",['ngRoute','highcharts-ng','dashboardModule','vehicleApp','driverApp','reservationApp','angularjs-dropdown-multiselect','720kb.datepicker']);
 
     // fleet module configurations
    fleetApp.config(['$routeProvider', function($routeProvider) {

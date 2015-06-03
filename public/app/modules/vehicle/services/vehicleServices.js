@@ -3,25 +3,7 @@
  */
 angular.module('vehicleApp')
     .factory('VehicleService', ['$http', '$resource','$q', 'baseUrlVehicles',function( $http, $resource,$q, baseUrlVehicles){
-        //var vehicleServiceObject = {};
-        //vehicleServiceObject.vehicleList  = null;
-        //
-        //vehicleServiceObject.vehiclesResource = $resource(baseUrlVehicles + ":id", { id: "@id" },{ create: { method: "POST" }, save: { method: "PUT" },update: {method:'PUT'},delete: {method:'DELETE'}});
-        //var deferred = $q.defer();
-        //var listVehicles = function(){
-        //
-        //    var vehicles = vehicleServiceObject.vehiclesResource.query();
-        //    vehicles.$promise.then(function (data) {
-        //        deferred.resolve(data);
-        //
-        //    });
-        //}
-        //
-        //listVehicles();
-        //
-        //return deferred;
-
-        return{
+          return{
             apiPath:baseUrlVehicles,
             listVehicles: function(){
                 //Creating a deferred object
