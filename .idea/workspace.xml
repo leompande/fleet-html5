@@ -40,24 +40,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="directives.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="directives.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/app/modules/reservation/directives/directives.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="370" max-vertical-offset="2610">
-              <caret line="104" column="71" selection-start-line="104" selection-start-column="71" selection-end-line="104" selection-end-column="73" />
-              <folding>
-                <element signature="e#195#3123#0" expanded="false" />
-                <element signature="e#7495#7631#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.55737704" vertical-offset="2106" max-vertical-offset="4248">
+              <caret line="134" column="62" selection-start-line="134" selection-start-column="62" selection-end-line="134" selection-end-column="62" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reservations.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="reservations.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/modules/reservation/views/reservations.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5930435" vertical-offset="4051" max-vertical-offset="4626">
-              <caret line="337" column="99" selection-start-line="337" selection-start-column="99" selection-end-line="337" selection-end-column="99" />
+            <state vertical-scroll-proportion="-20.62963" vertical-offset="3403" max-vertical-offset="4194">
+              <caret line="313" column="20" selection-start-line="313" selection-start-column="20" selection-end-line="313" selection-end-column="20" />
               <folding>
                 <element signature="tag#div#0" expanded="false" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -65,14 +62,13 @@
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,13 +77,14 @@
       <file leaf-file-name="reservationChart.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/modules/reservation/directives/templates/reservationChart.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.666667" vertical-offset="108" max-vertical-offset="684">
-              <caret line="19" column="93" selection-start-line="19" selection-start-column="93" selection-end-line="19" selection-end-column="93" />
+            <state vertical-scroll-proportion="-7.3333335" vertical-offset="378" max-vertical-offset="1296">
+              <caret line="55" column="62" selection-start-line="55" selection-start-column="62" selection-end-line="55" selection-end-column="62" />
               <folding>
-                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="tag#table#0;tag#div#0" expanded="false" />
+                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -108,8 +105,8 @@
       <file leaf-file-name="app.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.62963" vertical-offset="11827" max-vertical-offset="12906">
-              <caret line="673" column="13" selection-start-line="673" selection-start-column="13" selection-end-line="673" selection-end-column="13" />
+            <state vertical-scroll-proportion="-0.6923077" vertical-offset="5238" max-vertical-offset="6786">
+              <caret line="293" column="8" selection-start-line="293" selection-start-column="8" selection-end-line="293" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -144,7 +141,7 @@
       <file leaf-file-name="directives.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/modules/vehicle/directives/directives.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1296">
+            <state vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="1296">
               <caret line="63" column="17" selection-start-line="8" selection-start-column="16" selection-end-line="63" selection-end-column="17" />
               <folding>
                 <element signature="e#902#2205#0" expanded="false" />
@@ -225,10 +222,10 @@
         <option value="$PROJECT_DIR$/public/app/modules/reservation/filters/reservationFilters.js" />
         <option value="$PROJECT_DIR$/public/app/modules/reservation/controllers/reservationControllers.js" />
         <option value="$PROJECT_DIR$/public/app/css/bootstrap/js/tooltip.js" />
+        <option value="$PROJECT_DIR$/public/app/modules/reservation/views/reservations.html" />
         <option value="$PROJECT_DIR$/app.html" />
         <option value="$PROJECT_DIR$/public/app/modules/reservation/directives/templates/reservationChart.html" />
         <option value="$PROJECT_DIR$/public/app/modules/reservation/directives/directives.js" />
-        <option value="$PROJECT_DIR$/public/app/modules/reservation/views/reservations.html" />
       </list>
     </option>
   </component>
@@ -558,8 +555,9 @@
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22415154" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3442623" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3442623" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874617" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980484" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -572,7 +570,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32857144" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -998,14 +995,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.62963" vertical-offset="11827" max-vertical-offset="12906">
-          <caret line="673" column="13" selection-start-line="673" selection-start-column="13" selection-end-line="673" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/modules/vehicle/directives/templates/customeTable.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.62963" vertical-offset="2161" max-vertical-offset="2736">
@@ -1032,27 +1021,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/modules/vehicle/directives/directives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1296">
-          <caret line="63" column="17" selection-start-line="8" selection-start-column="16" selection-end-line="63" selection-end-column="17" />
-          <folding>
-            <element signature="e#902#2205#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/modules/reservation/directives/directives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="370" max-vertical-offset="2610">
-          <caret line="104" column="71" selection-start-line="104" selection-start-column="71" selection-end-line="104" selection-end-column="73" />
-          <folding>
-            <element signature="e#195#3123#0" expanded="false" />
-            <element signature="e#7495#7631#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/modules/reservation/directives/templates/reservationTable.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.62963" vertical-offset="181" max-vertical-offset="756">
@@ -1065,23 +1033,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/modules/reservation/directives/templates/reservationChart.html">
+    <entry file="file://$PROJECT_DIR$/public/app/modules/vehicle/directives/directives.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.666667" vertical-offset="108" max-vertical-offset="684">
-          <caret line="19" column="93" selection-start-line="19" selection-start-column="93" selection-end-line="19" selection-end-column="93" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1296">
+          <caret line="63" column="17" selection-start-line="8" selection-start-column="16" selection-end-line="63" selection-end-column="17" />
           <folding>
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="e#902#2205#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6923077" vertical-offset="5238" max-vertical-offset="6786">
+          <caret line="293" column="8" selection-start-line="293" selection-start-column="8" selection-end-line="293" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/modules/reservation/views/reservations.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5930435" vertical-offset="4051" max-vertical-offset="4626">
-          <caret line="337" column="99" selection-start-line="337" selection-start-column="99" selection-end-line="337" selection-end-column="99" />
+        <state vertical-scroll-proportion="-20.62963" vertical-offset="3403" max-vertical-offset="4194">
+          <caret line="313" column="20" selection-start-line="313" selection-start-column="20" selection-end-line="313" selection-end-column="20" />
           <folding>
             <element signature="tag#div#0" expanded="false" />
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -1089,15 +1062,36 @@
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/modules/reservation/directives/templates/reservationChart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.3333335" vertical-offset="378" max-vertical-offset="1296">
+          <caret line="55" column="62" selection-start-line="55" selection-start-column="62" selection-end-line="55" selection-end-column="62" />
+          <folding>
+            <element signature="tag#table#0;tag#div#0" expanded="false" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/modules/reservation/directives/directives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55737704" vertical-offset="2106" max-vertical-offset="4248">
+          <caret line="134" column="62" selection-start-line="134" selection-start-column="62" selection-end-line="134" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>

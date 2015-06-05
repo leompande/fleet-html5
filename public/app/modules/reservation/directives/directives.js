@@ -89,11 +89,14 @@ angular.module("reservationApp")
     .directive("reservationChart",['ReservationService',function (ReservationService) {
                return {
             link: function (scope, element, attrs) {
+                var rightPanel = angular.element( document.querySelector( '#rightPanel' ) );
+                var tablePanel = angular.element( document.querySelector( '#tablePanel' ) );
+                rightPanel.hide();
                 ReservationService.listReserveVehicles().then(function(data){
                     scope.reservedvehicles = data;
+                    scope.selectedReservation = "test";
                     scope.markReservation = function(vehicle,periodYear,periodMonth,date,i){
                         scope.dateChart = periodYear+"-"+periodMonth+"-"+date;
-                        console.log(periodMonth);
                         var cellid = vehicle.id+"_"+periodMonth+"_"+i;
                         angular.forEach(scope.reservedvehicles,function(value,index) {
                             if(value.vehicle_id==vehicle.id){
@@ -110,9 +113,10 @@ angular.module("reservationApp")
                                                 match.attr("title","click to view menu for: "+reservation.title);
                                             });
                                             match.bind('mouseout',function(e){
-                                                console.log("mouse out");
+
                                             });
                                             match.bind('click',function(e){
+
                                                 /**
                                                  * Important variables for directives
                                                  */
@@ -120,6 +124,20 @@ angular.module("reservationApp")
                                                 var myD = angular.element( document.querySelector( '.drops' ) );
                                                 var inlineEditMenu = angular.element( document.querySelector( '#inlineEdit' ) );
                                                 var viewMoreMenu = angular.element( document.querySelector( '#viewMore' ) );
+                                                var colseRight = angular.element( document.querySelector( '#colseRight' ) );
+
+                                                // view more right panel
+                                                viewMoreMenu.bind('click',function(e){
+                                                    tablePanel.removeClass("col-md-12");
+                                                    tablePanel.addClass("col-md-9");
+                                                    rightPanel.show();
+                                                    // removing right panel
+                                                    colseRight.bind('click',function(e){
+                                                        tablePanel.removeClass("col-md-9");
+                                                        tablePanel.addClass("col-md-12");
+                                                        rightPanel.hide();
+                                                    });
+                                                });
                                                 scope.modalTile = "";
                                                 scope.id = null;
 
@@ -130,7 +148,7 @@ angular.module("reservationApp")
 
 
                                                 scope.contextMenu = function(event,jsonObject){
-                                                    scope.modalTitle = "DETAILED INFORMATION FOR VEHICLE : Reg# "+jsonObject['registration_number']+", Body Type "+jsonObject['body_type'];
+                                                    scope.modalTitle = "DETAILED INFORMATION FOR VEHICLE : Reg# ";
                                                     scope.currentVehicle = jsonObject;
                                                     scope.openLocation(event);
 
@@ -185,7 +203,6 @@ angular.module("reservationApp")
 
                         return true;
                     }
-                    console.log(scope.classChart);
                 });
 
                 function getObjectById(array,id,id_name){
@@ -199,14 +216,14 @@ angular.module("reservationApp")
             },
             restrict:"E",
             scope: {
-                vehicles: "=vehicles",
-                reservedVehicles: "=reservedVehicles",
-                range: "=range",
-                modalTitle: "=modalTitle",
+                vehicles: "=?vehicles",
+                reservedVehicles: "=?reservedVehicles",
+                range: "=?range",
+                modalTitle: "=?modalTitle",
                 classChart: "=?clchart",
-                reservations: "=reservations",
-                periodMonth: "=month",
-                periodYear: "=year"
+                reservations: "=?reservations",
+                periodMonth: "=?month",
+                periodYear: "=?year"
             },
             templateUrl:"public/app/modules/reservation/directives/templates/reservationChart.html"
         }
