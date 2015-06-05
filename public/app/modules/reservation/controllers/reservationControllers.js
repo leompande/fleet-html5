@@ -81,119 +81,41 @@ dashboardModule.controller("reservationController",['$scope','$route', '$http', 
 }]);
 
 
-dashboardModule.controller("reservationsController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder','VehicleService',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder,VehicleService){
-        $scope.years = ['2014','2013','2012','2011'];
-        $scope.months = ['january','february','march','april'];
-        $scope.periodMonth = 'march';
-        $scope.periodYear = '2015';
+dashboardModule.controller("reservationsController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder','VehicleService','ReservationService',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder,VehicleService,ReservationService){
+
+        $scope.months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Oct','Sep','Nov','Dec'];
+        $scope.monthIndex = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+
+        $scope.periodYear = new Date().getFullYear();
+        $scope.periodMonth = $scope.monthIndex[new Date().getMonth()];
+        $scope.defaultMonth = $scope.months[$scope.monthIndex.indexOf($scope.periodMonth)]
         $scope.view = "Chart";
-        $scope.chartTitle = "Vehicle Reservation "+$scope.view+": "+$scope.periodMonth+" "+$scope.periodYear;
-        $scope.vehicles = null;
+        $scope.chartTitle = "Vehicle Reservation "+$scope.view+": "+$scope.months[$scope.monthIndex.indexOf($scope.periodMonth)]+" "+$scope.periodYear;
+        $scope.vehicles = {};
+        $scope.classChart = [31+$scope.vehicles.length];
         $scope.periodChange = function(){
-            $scope.chartTitle = "Vehicle Reservation "+$scope.view+": "+$scope.periodMonth+" "+$scope.periodYear;
+            $scope.defaultMonth = null;
+            $scope.chartTitle = "Vehicle Reservation "+$scope.view+": "+$scope.months[$scope.monthIndex.indexOf($scope.periodMonth)]+" "+$scope.periodYear;
+        }
+        $scope.nextPrev = function(action){
+
+            if(action==="next"){
+                if($scope.periodYear<new Date().getFullYear()){
+                    $scope.defaultMonth =null;
+                    $scope.periodYear=$scope.periodYear+1;
+                }else{}
+
+            }
+            if(action==="prev"){
+
+                if($scope.periodYear>2000){
+                    $scope.defaultMonth = null
+                    $scope.periodYear=$scope.periodYear-1;
+                }else{}
+            }
+            $scope.chartTitle = "Vehicle Reservation "+$scope.view+": "+$scope.months[$scope.monthIndex.indexOf($scope.periodMonth)]+" "+$scope.periodYear;
         }
 
-        $scope.reservations = [
-            {
-                'title':'Office Innovation Exhibitions',
-                'start_date':'5th july 2015',
-                'end_date':'12th july 2015',
-                'number_of_vehicles':'4',
-                'possible_route':'Morogoro',
-                'reserved_to':'Staff Members'
-            },{
-                'title':'Customer Service Week tarime',
-                'start_date':'12th june 2015',
-                'end_date':'19th june 2015',
-                'number_of_vehicles':'12',
-                'possible_route':'Tarime',
-                'reserved_to':'Customer Service Staff'
-            },{
-                'title':'',
-                'start_date':'',
-                'end_date':'',
-                'number_of_vehicles':'',
-                'possible_route':'',
-                'reserved_to':''
-            },{
-                'title':'',
-                'start_date':'',
-                'end_date':'',
-                'number_of_vehicles':'',
-                'possible_route':'',
-                'reserved_to':''
-            },{
-                'title':'',
-                'start_date':'',
-                'end_date':'',
-                'number_of_vehicles':'',
-                'possible_route':'',
-                'reserved_to':''
-            },{
-                'title':'',
-                'start_date':'',
-                'end_date':'',
-                'number_of_vehicles':'',
-                'possible_route':'',
-                'reserved_to':''
-            },{
-                'title':'',
-                'start_date':'',
-                'end_date':'',
-                'number_of_vehicles':'',
-                'possible_route':'',
-                'reserved_to':''
-            },{
-                'title':'',
-                'start_date':'',
-                'end_date':'',
-                'number_of_vehicles':'',
-                'possible_route':'',
-                'reserved_to':''
-            },{
-                'title':'',
-                'start_date':'',
-                'end_date':'',
-                'number_of_vehicles':'',
-                'possible_route':'',
-                'reserved_to':''
-            },{
-                'title':'',
-                'start_date':'',
-                'end_date':'',
-                'number_of_vehicles':'',
-                'possible_route':'',
-                'reserved_to':''
-            },{
-                'title':'',
-                'start_date':'',
-                'end_date':'',
-                'number_of_vehicles':'',
-                'possible_route':'',
-                'reserved_to':''
-            },{
-                'title':'',
-                'start_date':'',
-                'end_date':'',
-                'number_of_vehicles':'',
-                'possible_route':'',
-                'reserved_to':''
-            },{
-                'title':'',
-                'start_date':'',
-                'end_date':'',
-                'number_of_vehicles':'',
-                'possible_route':'',
-                'reserved_to':''
-            },{
-                'title':'',
-                'start_date':'',
-                'end_date':'',
-                'number_of_vehicles':'',
-                'possible_route':'',
-                'reserved_to':''
-            },
-        ]
     var drawTheChart = function(){
 
     }
@@ -217,21 +139,39 @@ dashboardModule.controller("reservationsController",['$scope','$route', '$http',
         }
         return dateString;
     }
-    $scope.days = 30;
-    var range = [];
-    for(var i=1;i<=$scope.days;i++) {
-        range.push(i);
+
+    var ranges = function() {
+        $scope.days = 30;
+        var range = [];
+        for (var i = 1; i <= $scope.days; i++) {
+            range.push(i);
+        }
+        $scope.range = range;
     }
-    $scope.range = range;
-    function vehicleList(){
+    ranges();
+
         VehicleService.listVehicles().then(function(data){
                 $scope.vehicles = data;
+                $scope.populateClass = function(){
+                    //$scope.classChart[vehicle.id][i]
+
+                    var arr = [];
+                    for(var i=1;i<=31;i++){
+                        angular.forEach($scope.vehicles,function(value,index){
+                            arr[i] = "postponed";
+                            $scope.classChart[value.id] = arr;
+
+                        });
+                    }
+                }
+                $scope.populateClass();
             },
             function(errorMessage){
                 $scope.error=errorMessage;
             });
-    };
-    vehicleList();
+
+
+    //console.log($scope.classChart);
 }]);
 
 dashboardModule.controller("reservedController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder){
@@ -255,3 +195,5 @@ dashboardModule.controller("cancelledController",['$scope','$route', '$http', '$
         $scope.cancelled = data;
     });
 }]);
+
+

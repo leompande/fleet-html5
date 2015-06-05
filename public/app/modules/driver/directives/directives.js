@@ -49,7 +49,7 @@ angular.module("driverApp")
                     });
                 }
                 scope.openLocation = function(event){
-                    scope.offsetX =event.clientX;//(event.clientX-100);
+                    scope.offsetX =event.clientX/1.5;//(event.clientX-100);
                     scope.offsetY = event.clientY;//(event.clientY-100);
                 }
 

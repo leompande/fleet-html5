@@ -14,10 +14,20 @@
           <th ng-repeat="i in range" style="width:30px!important;font-weight: bolder;text-align: center;font-size: 11px!important;">{{i}}</th>
       </tr>
       </thead>
+    <div class="dropdown drops" >
+        <ul class="dropdown-menus" role="menu" aria-labelledby="dropdownMenu1" >
+            <li role="presentation"><a role="menuitem" tabindex="-1" id="viewMore" data-toggle="modal" data-target="#moreView">View More<i class="fa fa-search pull-right"></i></a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" id="inlineEdit">Postpone<i class="fa fa-eraser pull-right"></i></a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#editModal" >Edit<i class="fa fa-edit pull-right"></i></a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#deleteModal">Remove<i class="fa fa-trash-o pull-right"></i></a></li>
+        </ul>
+    </div>
       <tbody>
-      <tr ng-repeat="vehicle in vehicles">
+      <tr ng-repeat="vehicle in vehicles | orderBy:id">
+
           <th style="width:33px!important;font-weight: bolder;text-align: center;">{{vehicle.registration_number}}</th>
-          <td ng-repeat="i in range" style="width:33px!important;height:37px!important;text-align: center;" class="reserveds"><a>a</a></td>
+          <td ng-repeat="i in range " style="width:33px!important;height:37px!important;text-align: center;" ng-if='markReservation(vehicle,periodYear,periodMonth,datedate = (i | toDate),i)' class="postponed" title="click to reserve vehicle" id="id{{vehicle.id}}_{{periodMonth}}_{{i}}"></td>
+          <!--{{periodYear}}-{{periodMonth}}-{{i | toDate}}-->
       </tr>
       </tbody>
   </table>

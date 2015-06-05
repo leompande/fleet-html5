@@ -253,6 +253,29 @@
     </div>
 </div>
 
+<!-- reservation chart modal chart-->
+
+<div class="modal fade" id="moreView" tabindex="-1" role="dialog" aria-labelledby="Label" aria-hidden="true" >
+    <div class="modal-dialog" style="width:1034px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="Label">{{ modalTitle }}</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                  Vehicle Reservations details
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button ng-if="save" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end reservation chart modal chart-->
 <!--End add modal form-->
 <div  ng-controller="reservationsController">
 
@@ -271,43 +294,48 @@
             <!-- flight section -->
             <div class="bhoechie-tab-content active">
                 <div class="row">
-                    <div class="col-md-6">
-                    <select ng-model="periodYear" ng-click="periodChange()"  class="form-control ">
-                        <!--<option ng-selected="true" disabled>-- Select Year --</option>-->
-                        <option ng-repeat="year in years">{{year}}</option>
-                    </select>
-                        </div>
-                            <div class="col-md-6">
-                    <select ng-model="periodMonth" ng-click="periodChange()" class="form-control">
-                        <!--<option ng-selected="true" disabled>-- Select Month --</option>-->
-                        <option ng-repeat="month in months">{{month}}</option>
-                    </select>
-                            </div>
+                    <div class="col-md-5">
+                        <input  ng-model="periodYear" class="form-control " disabled>
+
+                    </div>
+                    <div class="col-md-2">
+                        <a class="btn btn-default btn-md"  ng-click="nextPrev('prev')"  title="previous year">Prev</a>
+                        <a class="btn btn-default btn-md"  ng-click="nextPrev('next')"  title="next year">Next</a>
+                    </div>
+                    <div class="col-md-5">
+                        <select ng-model="periodMonth" ng-click="periodChange()" class="form-control">
+                            <!--<option ng-selected="true" disabled>-- Select Month --</option>-->
+                            <option value="{{periodMonth}}" selected>{{defaultMonth}}</option>
+                            <option ng-repeat="month in months" value="{{monthIndex[$index]}}">{{month}}</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="row" style="text-align: center;"><div class="col-md-2"><a style="margin-top: 10px;" ng-click="addReservationForm()" data-toggle="modal" data-target="#myModal" class="btn btn-md btn-primary">Add Reservation</a></div><div class="col-md-9"><h3 ng-modal="chartTitle">{{chartTitle}}</h3></div></div>
                 <div class="row">
-                <reservation-chart vehicles="vehicles" range="range" classChart="classChart"></reservation-chart>
+                <reservation-chart vehicles="vehicles" reservedVehicles="reservedvehicles" range="range" reservations="reservation" modalTitle="modalTile" clchart="classChart" month="periodMonth" year="periodYear"></reservation-chart>
                 </div>
                  </div>
             <!-- train section -->
             <div class="bhoechie-tab-content">
                 <div class="row">
-                    <div class="col-md-6">
-                        <select ng-model="periodYear" ng-click="periodChange()"  class="form-control ">
-                            <!--<option ng-selected="true" disabled>-- Select Year --</option>-->
-                            <option ng-repeat="year in years">{{year}}</option>
-                        </select>
+                    <div class="col-md-5">
+                        <input  ng-model="periodYear" class="form-control " disabled>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-2">
+                    <a class="btn btn-default btn-md" ng-click="nextPrev('prev')" title="previous year">Prev</a>
+                    <a class="btn btn-default btn-md" ng-click="nextPrev('next')" title="next year">Next</a>
+                    </div>
+                    <div class="col-md-5">
                         <select ng-model="periodMonth" ng-click="periodChange()" class="form-control">
-                            <!--<option ng-selected="true" disabled>-- Select Month --</option>-->
-                            <option ng-repeat="month in months">{{month}}</option>
+                            <option value="{{periodMonth}}" selected>{{defaultMonth}}</option>
+                            <option ng-repeat="month in months" value="{{monthIndex[$index]}}">{{month}}</option>
                         </select>
                     </div>
                 </div>
                 <div class="row" style="text-align: center;"><div class="col-md-2"><a style="margin-top: 10px;"  data-toggle="modal" ng-click="addReservationForm()" data-target="#myModal"  class="btn btn-md btn-primary" >Add Reservation</a></div><div class="col-md-9"><h3 ng-modal="chartTitle">{{chartTitle}}</h3></div></div>
+
                 <div class="row">
-                    <reservation-table vehicles="vehicles" range="range" reservations="reservation"></reservation-table>
+                    <reservation-table vehicles="vehicles" range="range" reservations="reservations" clChart="classChart" month="periodMonth" year="periodYear"></reservation-table>
                 </div>
             </div>
 
