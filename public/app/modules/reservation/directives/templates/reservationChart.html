@@ -5,14 +5,17 @@
     .postponed{
         background-color: #909fa7;
     }
+    .cancelled{
+        background-color: #37bc9b;
+    }
 
 </style>
 
 
 <!-- end reservation chart modal chart-->
-        <div class="col-md-12" id="tablePanel">
+        <div class="row" id="tablePanel">
 
-            <table id="datatable2" datatable="ng" dt-options="showCase.dtOptions" dt-column-defs="showCase.dtColumnDefs"  class="table table-condensed   table-bordered">
+            <table id="datatable2" datatable="ng" dt-options="showCase.dtOptions" dt-column-defs="showCase.dtColumnDefs"  class="table table-condensed   table-bordered table-responsive">
                 <thead>
                 <tr>
                     <th title="Vehicle regitration number" style="width:20px!important;text-align: center;">V.REG#</th>
@@ -31,15 +34,15 @@
                 <tr ng-repeat="vehicle in vehicles | orderBy:id">
 
                     <th style="width:33px!important;font-weight: bolder;text-align: center;">{{vehicle.registration_number}}</th>
-                    <td ng-repeat="i in range " style="width:33px!important;height:37px!important;text-align: center;" ng-if='markReservation(vehicle,periodYear,periodMonth,datedate = (i | toDate),i)' class="postponed" title="click to reserve vehicle" id="id{{vehicle.id}}_{{periodMonth}}_{{i}}"></td>
+                    <td ng-repeat="i in range " style="width:33px!important;height:37px!important;text-align: center;" ng-if='markReservation(vehicle,periodYear,periodMonth,datedate = (i | toDate),i)' class="openclass" title="click to reserve vehicle" id="id{{vehicle.id}}_{{periodMonth}}_{{i}}"></td>
                     <!--{{periodYear}}-{{periodMonth}}-{{i | toDate}}-->
                 </tr>
                 </tbody>
             </table>
 
         </div>
-        <div class="col-md-3" id="rightPanel">
-        <aside class="">
+        <div class="col-md-3" id="rightPanel" style="background-color: #ffffff;">
+        <aside class="" >
         <!-- START Off Sidebar (right)-->
         <nav>
         <div role="tabpanel">
@@ -59,7 +62,7 @@
             <hr/>
             <p>Reservation Details</p>
 
-            <table class="table  table-striped table-condensed table-hover">
+            <table class="table  table-striped table-condensed table-hover table-responsive">
                <tbody>
                <tr><th>Reservation Title: </th><td>{{}}</td></tr>
                <tr><th>Start Date :</th><td></td></tr>
@@ -70,7 +73,7 @@
             </table>
 <hr/>
             <p>Vehicle Reserved Details</p>
-            <table class="table  table-striped table-condensed table-hover">
+            <table class="table  table-striped table-condensed table-hover table-responsive">
                 <thead>
                 <tr><th>#</th><th>Reg #</th><th>Body Type</th><th>Driver</th><th>Seat Capacity</th></tr>
                 </thead>

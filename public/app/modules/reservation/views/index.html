@@ -18,32 +18,19 @@
         <div class="panel-body">
 
             <div role="tabpanel">
-            <div class="row">
-                <nav class="navbar navbar-default" >
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div id="navbar" class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li class="{{ reservationClass }}"><a ng-click="controlSubmenu('Reservations')">Reservations</a></li>
-                                <li class="{{ reservedClass }}"><a ng-click="controlSubmenu('Reserved Vehicles')">Reserved Vehicles</a></li>
-                                <li class="{{ postponedClass }}"><a ng-click="controlSubmenu('Postponed Reservations')">Postponed Reservations</a></li>
-                                <li class="{{ cancelledClass }}"><a ng-click="controlSubmenu('Cancelled Reservations')">Cancelled Reservations</a></li>
-                                <li class="{{ checkoutClass }}"><a ng-click="controlSubmenu('CheckOuts')">CheckOuts</a></li>
-                            </ul>
-                        </div><!--/.nav-collapse -->
-                    </div><!--/.container-fluid -->
-                </nav>
-            </div>
-            <div class="row" >
-                <div ng-include="urlInclude"></div>
-            </div>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a  ng-click="controlSubmenu('Reservations')" role="tab" data-toggle="tab" >Reservations</a></li>
+                    <li role="presentation"><a ng-click="controlSubmenu('Reserved Vehicles')" role="tab" data-toggle="tab">Reserved Vehicles</a></li>
+                    <li role="presentation"><a ng-click="controlSubmenu('Postponed Reservations')" role="tab" data-toggle="tab">Postponed Reservations</a></li>
+                    <li role="presentation"><a ng-click="controlSubmenu('Cancelled Reservations')" role="tab" data-toggle="tab">Cancelled Reservations</a></li>
+                    <li role="presentation"><a ng-click="controlSubmenu('CheckOuts')" role="tab" data-toggle="tab">CheckOuts</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content" >
+                    <div  class="tab-pane active"  ng-include="urlInclude"></div>
+                </div>
 
             </div>
 

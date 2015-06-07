@@ -35,25 +35,10 @@ var fleetApp = angular.module("fleetApp",['ngRoute','highcharts-ng','dashboardMo
                templateUrl: "public/app/modules/vehicle/views/index.html",
                controller: ""
        })
-           .when('/reservation', {
+       .when('/reservation', {
                templateUrl: "public/app/modules/reservation/views/index.html",
                controller: "reservationController"
            })
-           //.when('/reservation/reservations', {
-           //    redirectTo: '/reservation'
-           //})
-           //.when('/reservation/reservedvehicles', {
-           //    //templateUrl: "public/app/modules/reservation/views/reservedvehicles.html",
-           //    controller: "reservedController"
-           //})
-           //.when('/reservation/checkouts', {
-           //   // templateUrl: "public/app/modules/reservation/views/checkouts.html",
-           //    controller: "checkoutController"
-           //})
-           //.when('/reservation/postponed', {
-           //    //templateUrl: "public/app/modules/reservation/views/postponed.html",
-           //    controller: "postponedController"
-           //})
        .when('/model', {
                template: '<h5>This is the vehicle models</h5>'
        })

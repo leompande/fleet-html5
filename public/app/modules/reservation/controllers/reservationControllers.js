@@ -5,50 +5,50 @@ var dashboardModule = angular.module("reservationApp");
 
 dashboardModule.controller("reservationController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder','ReservationService',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder,ReservationService){
     $scope.reservationModuleTitle = "VEHICLE RESERVATIONS";
-    $scope.reservationClass = 'active';
-    $scope.reservations = 'active';
+    //$scope.reservationClass = 'active';
+    //$scope.reservations = 'active';
     $scope.urlInclude = "public/app/modules/reservation/views/reservations.html";
     $scope.modalTile = null;
     $scope.controlSubmenu = function(submenu){
         $scope.reservationModuleTitle = 'VEHICLE RESERVATIONS / '+submenu;
         if(submenu=='Reservations'){
-            $scope.reservationClass = 'active';
-            $scope.reservedClass = '';
-            $scope.checkoutClass = '';
-            $scope.postponedClass = '';
-            $scope.cancelledClass = '';
+            //$scope.reservationClass = 'active';
+            //$scope.reservedClass = '';
+            //$scope.checkoutClass = '';
+            //$scope.postponedClass = '';
+            //$scope.cancelledClass = '';
             $scope.urlInclude = "public/app/modules/reservation/views/reservations.html";
         }
         if(submenu=='Reserved Vehicles'){
-            $scope.reservationClass = '';
-            $scope.reservedClass = 'active';
-            $scope.checkoutClass = '';
-            $scope.postponedClass = '';
-            $scope.cancelledClass = '';
+            //$scope.reservationClass = '';
+            //$scope.reservedClass = 'active';
+            //$scope.checkoutClass = '';
+            //$scope.postponedClass = '';
+            //$scope.cancelledClass = '';
             $scope.urlInclude = "public/app/modules/reservation/views/reservedvehicles.html";
         }
         if(submenu=='Postponed Reservations'){
-            $scope.reservationClass = '';
-            $scope.reservedClass = '';
-            $scope.checkoutClass = '';
-            $scope.postponedClass = 'active';
-            $scope.cancelledClass = '';
+            //$scope.reservationClass = '';
+            //$scope.reservedClass = '';
+            //$scope.checkoutClass = '';
+            //$scope.postponedClass = 'active';
+            //$scope.cancelledClass = '';
             $scope.urlInclude = "public/app/modules/reservation/views/postponed.html";
         }
         if(submenu=='CheckOuts'){
-            $scope.reservationClass = '';
-            $scope.reservedClass = '';
-            $scope.checkoutClass = 'active';
-            $scope.postponedClass = '';
-            $scope.cancelledClass = '';
+            //$scope.reservationClass = '';
+            //$scope.reservedClass = '';
+            //$scope.checkoutClass = 'active';
+            //$scope.postponedClass = '';
+            //$scope.cancelledClass = '';
             $scope.urlInclude = "public/app/modules/reservation/views/checkouts.html";
         }
         if(submenu=='Cancelled Reservations'){
-            $scope.reservationClass = '';
-            $scope.reservedClass = '';
-            $scope.checkoutClass = '';
-            $scope.postponedClass = '';
-            $scope.cancelledClass = 'active';
+            //$scope.reservationClass = '';
+            //$scope.reservedClass = '';
+            //$scope.checkoutClass = '';
+            //$scope.postponedClass = '';
+            //$scope.cancelledClass = 'active';
             $scope.urlInclude = "public/app/modules/reservation/views/cancelled.html";
         }
 
@@ -153,14 +153,12 @@ dashboardModule.controller("reservationsController",['$scope','$route', '$http',
         VehicleService.listVehicles().then(function(data){
                 $scope.vehicles = data;
                 $scope.populateClass = function(){
-                    //$scope.classChart[vehicle.id][i]
 
                     var arr = [];
                     for(var i=1;i<=31;i++){
                         angular.forEach($scope.vehicles,function(value,index){
                             arr[i] = "postponed";
                             $scope.classChart[value.id] = arr;
-
                         });
                     }
                 }

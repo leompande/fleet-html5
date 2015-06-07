@@ -5,12 +5,11 @@ angular.module("driverApp")
     .directive("customeDriverTable", function () {
         return {
             link: function (scope, element, attrs) {
-
                 /**
                  * Important variables for directives
                  */
                 var myEl = angular.element( document.querySelector( '.dropdown-menus' ) );
-                var myD = angular.element( document.querySelector( '.drops' ) );
+                var myD  = angular.element( document.querySelector( '.drops' ) );
                 var inlineEditMenu = angular.element( document.querySelector( '#inlineEdit' ) );
                 var viewMoreMenu = angular.element( document.querySelector( '#viewMore' ) );
                 scope.modalTile = "";
@@ -71,10 +70,6 @@ angular.module("driverApp")
                     scope.deleteDriver({arg1:scope.id});
                 }
 
-                //  scope.deleteVehicle({arg1:id});
-
-                // scope.viewMore();
-
 
             },
             restrict:"E",
@@ -89,10 +84,4 @@ angular.module("driverApp")
             },
             templateUrl:"public/app/modules/driver/directives/templates/customeTable.html"
         }
-    }).filter("search", function () {
-        return function (data,searchValue) {
-
-
-
-        }
-    });
+    })

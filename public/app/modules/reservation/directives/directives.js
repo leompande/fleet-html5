@@ -52,29 +52,19 @@ angular.module("reservationApp")
                     scope.offsetX =event.clientX/1.5;//(event.clientX-100);
                     scope.offsetY = event.clientY/2;//(event.clientY-100);
                 }
-
                 scope.inlineEdit = function(id){
                     $(".input_"+id).css('display','block');
                     $(".text_"+id).css('display','none');
                     $(".input_"+scope.id).click(function(e){
                         e.stopPropagation();
                     });
-
-
                 }
-
                 scope.ediVehicle = function(){
                     scope.editVehicle({arg1:scope.id});
                 }
-
                 scope.delVehicle = function(){
                     scope.deleteVehicle({arg1:scope.id});
                 }
-
-                //  scope.deleteVehicle({arg1:id});
-
-                // scope.viewMore();
-
 
             },
                    restrict:"E",
@@ -105,99 +95,113 @@ angular.module("reservationApp")
                                         var startDate = new Date(reservation.start_date);
                                         var endDate = new Date(reservation.end_date);
                                 var match = angular.element( document.querySelector('#id'+cellid) );
-                                        if (fromChartDate >= startDate && fromChartDate <= endDate) {
-
-                                            match.removeClass("postponed");
-                                            match.addClass("reserved");
-                                            match.bind('mouseover',function(e){
-                                                match.attr("title","click to view menu for: "+reservation.title);
-                                            });
-                                            match.bind('mouseout',function(e){
-
-                                            });
-                                            match.bind('click',function(e){
-
-                                                /**
-                                                 * Important variables for directives
-                                                 */
-                                                var myEl = angular.element( document.querySelector( '.dropdown-menus' ) );
-                                                var myD = angular.element( document.querySelector( '.drops' ) );
-                                                var inlineEditMenu = angular.element( document.querySelector( '#inlineEdit' ) );
-                                                var viewMoreMenu = angular.element( document.querySelector( '#viewMore' ) );
-                                                var colseRight = angular.element( document.querySelector( '#colseRight' ) );
-
-                                                // view more right panel
-                                                viewMoreMenu.bind('click',function(e){
-                                                    tablePanel.removeClass("col-md-12");
-                                                    tablePanel.addClass("col-md-9");
-                                                    rightPanel.show();
-                                                    // removing right panel
-                                                    colseRight.bind('click',function(e){
-                                                        tablePanel.removeClass("col-md-9");
-                                                        tablePanel.addClass("col-md-12");
-                                                        rightPanel.hide();
-                                                    });
+                                match.addClass("openclass");
+                                        if (fromChartDate > startDate && fromChartDate < endDate) {
+                                            if(reservation.postponed>0){
+                                                match.addClass("postponed");
+                                                match.removeClass("reserved");
+                                                match.removeClass("cancelled");
+                                            }else if(reservation.cancelled>0){
+                                                match.removeClass("postponed");
+                                                match.removeClass("reserved");
+                                                match.addClass("cancelled");
+                                            }else{
+                                                match.removeClass("postponed");
+                                                match.removeClass("cancelled");
+                                                match.addClass("reserved");
+                                                match.bind('mouseover',function(e){
+                                                    match.attr("title","click to view menu for: "+reservation.title);
                                                 });
-                                                scope.modalTile = "";
-                                                scope.id = null;
+                                                match.bind('mouseout',function(e){
 
-
-                                                $('html').click(function() {
-                                                    myEl.css('display','none');
                                                 });
+                                                match.bind('click',function(e){
 
+                                                    /**
+                                                     * Important variables for directives
+                                                     */
+                                                    var myEl = angular.element( document.querySelector( '.dropdown-menus' ) );
+                                                    var myD = angular.element( document.querySelector( '.drops' ) );
+                                                    var inlineEditMenu = angular.element( document.querySelector( '#inlineEdit' ) );
+                                                    var viewMoreMenu = angular.element( document.querySelector( '#viewMore' ) );
+                                                    var colseRight = angular.element( document.querySelector( '#colseRight' ) );
 
-                                                scope.contextMenu = function(event,jsonObject){
-                                                    scope.modalTitle = "DETAILED INFORMATION FOR VEHICLE : Reg# ";
-                                                    scope.currentVehicle = jsonObject;
-                                                    scope.openLocation(event);
-
-                                                    $(".input_"+scope.id).css('display','none');
-                                                    $(".text_"+scope.id).css('display','block');
-                                                    myD.css('top',scope.offsetY+"px");
-                                                    myD.css('left',scope.offsetX+"px");
-                                                    myEl.css('display','block');
-                                                    $('div.panel-body').click(function(e){
-                                                        event.stopPropagation();
+                                                    // view more right panel
+                                                    viewMoreMenu.bind('click',function(e){
+                                                        tablePanel.removeClass("col-md-12");
+                                                        tablePanel.addClass("col-md-9");
+                                                        rightPanel.show();
+                                                        // removing right panel
+                                                        colseRight.bind('click',function(e){
+                                                            tablePanel.removeClass("col-md-9");
+                                                            tablePanel.addClass("col-md-12");
+                                                            rightPanel.hide();
+                                                        });
                                                     });
+                                                    scope.modalTile = "";
+                                                    scope.id = null;
+
+
+                                                    $('html').click(function() {
+                                                        myEl.css('display','none');
+                                                    });
+
+
+                                                    scope.contextMenu = function(event,jsonObject){
+                                                        scope.modalTitle = "DETAILED INFORMATION FOR VEHICLE : Reg# ";
+                                                        scope.currentVehicle = jsonObject;
+                                                        scope.openLocation(event);
+
+                                                        $(".input_"+scope.id).css('display','none');
+                                                        $(".text_"+scope.id).css('display','block');
+                                                        myD.css('top',scope.offsetY+"px");
+                                                        myD.css('left',scope.offsetX+"px");
+                                                        myEl.css('display','block');
+                                                        $('div.panel-body').click(function(e){
+                                                            event.stopPropagation();
+                                                        });
+                                                        //
+                                                        //scope.id = jsonObject.id;// getting object Id from context menu
+                                                        //
+                                                        //// edit objects inline through context menus
+                                                        //inlineEditMenu.on("click",function(){
+                                                        //    // pass object Id to inline edit function
+                                                        //    scope.inlineEdit(scope.id);
+                                                        //    //scope.update(jsonObject);
+                                                        //    scope.change = function(newValue,editedColumn,ObjectType){
+                                                        //        scope.updateInline({objectId:scope.id,edittedColumn:editedColumn,newValue:newValue});
+                                                        //    }
+                                                        //});
+                                                    }
+                                                    scope.openLocation = function(event){
+                                                        scope.offsetX =event.clientX/1.5;//(event.clientX-100);
+                                                        scope.offsetY = event.clientY/2;//(event.clientY-100);
+                                                    }
+
+                                                    //scope.inlineEdit = function(id){
+                                                    //    $(".input_"+id).css('display','block');
+                                                    //    $(".text_"+id).css('display','none');
+                                                    //    $(".input_"+scope.id).click(function(e){
+                                                    //        e.stopPropagation();
+                                                    //    });
                                                     //
-                                                    //scope.id = jsonObject.id;// getting object Id from context menu
                                                     //
-                                                    //// edit objects inline through context menus
-                                                    //inlineEditMenu.on("click",function(){
-                                                    //    // pass object Id to inline edit function
-                                                    //    scope.inlineEdit(scope.id);
-                                                    //    //scope.update(jsonObject);
-                                                    //    scope.change = function(newValue,editedColumn,ObjectType){
-                                                    //        scope.updateInline({objectId:scope.id,edittedColumn:editedColumn,newValue:newValue});
-                                                    //    }
-                                                    //});
-                                                }
-                                                scope.openLocation = function(event){
-                                                    scope.offsetX =event.clientX/1.5;//(event.clientX-100);
-                                                    scope.offsetY = event.clientY/2;//(event.clientY-100);
-                                                }
-
-                                                //scope.inlineEdit = function(id){
-                                                //    $(".input_"+id).css('display','block');
-                                                //    $(".text_"+id).css('display','none');
-                                                //    $(".input_"+scope.id).click(function(e){
-                                                //        e.stopPropagation();
-                                                //    });
-                                                //
-                                                //
-                                                //}
-                                                scope.contextMenu(e,reservation);
+                                                    //}
+                                                    scope.contextMenu(e,reservation);
 
 
 
-                                            });
+                                                });
+                                            }
+
                                         } else {
                                             match.removeClass("reserved");
-                                            match.addClass("postponed");
+                                            match.removeClass("postponed");
+                                            match.removeClass("cancelled");
+                                            match.addClass("openclass");
                                         }
                             }else{
-
+                                //match.addClass("openclass");
                             }
                         })
 
