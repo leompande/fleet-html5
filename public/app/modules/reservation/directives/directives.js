@@ -12,8 +12,8 @@ angular.module("reservationApp")
                 var myEl = angular.element( document.querySelector( '.dropdown-menus' ) );
                 var myD = angular.element( document.querySelector( '.drops' ) );
                 var inlineEditMenu = angular.element( document.querySelector( '#inlineEdit' ) );
-                var viewMoreMenu = angular.element( document.querySelector( '#viewMore' ) );
-                scope.modalTile = "";
+                var viewMoreMenu   = angular.element( document.querySelector( '#viewMore' ) );
+                scope.modalTile    = "";
                 scope.id = null;
 
 

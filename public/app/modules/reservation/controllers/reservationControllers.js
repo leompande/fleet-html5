@@ -83,7 +83,7 @@ dashboardModule.controller("reservationController",['$scope','$route', '$http', 
 
 dashboardModule.controller("reservationsController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder','VehicleService','ReservationService',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder,VehicleService,ReservationService){
 
-        $scope.months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Oct','Sep','Nov','Dec'];
+        $scope.months = ['January','February','March','April','May','June','July','August','October','September','November','December'];
         $scope.monthIndex = ['01','02','03','04','05','06','07','08','09','10','11','12'];
 
         $scope.periodYear = new Date().getFullYear();

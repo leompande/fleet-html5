@@ -27,10 +27,8 @@ fleetApp.controller("appController",function($scope,$route){
 fleetApp.controller("dataEntryController",function($scope,$route){
     $scope.setSubModule('');
     $scope.setTitle("Data Entry");
-
-    $scope.setAlert = function(abd){
+    $scope.setAlert = function(){
         alert("abcd");
     };
-
 
 });

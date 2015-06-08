@@ -50,3 +50,15 @@ var fleetApp = angular.module("fleetApp",['ngRoute','highcharts-ng','dashboardMo
        })
        .otherwise({redirectTo: '/dashboard'});
    }]);
+
+/**
+ * Description:
+ *     removes white space from text. useful for html values that cannot have spaces
+ * Usage:
+ *   {{some_text | nospace}}
+ */
+fleetApp.filter('nospace', function () {
+    return function (value) {
+        return (!value) ? '' : value.replace(/ /g, '');
+    };
+});
