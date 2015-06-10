@@ -80,38 +80,41 @@
     }
 
 </style>
-<table id="datatable2" datatable="ng"  dt-options="showCase.dtOptions" dt-column-defs="showCase.dtColumnDefs" class="table table-striped table-hover table-bordered table-condensed dataTable" >
-    <thead>
-    <tr>
-        <th>#</th>
-        <th >Registration Number</th>
-        <th >Driver</th>
-        <th >Reservation</th>
-        <th >Start Date</th>
-        <th >End Date</th>
-        <th >Reserved To</th>
-    </tr>
-    </thead>
-    <tbody>
-    <div class="dropdown drops" >
-        <ul class="dropdown-menus" role="menu" aria-labelledby="dropdownMenu1" >
-            <li role="presentation"><a role="menuitem" tabindex="-1" id="viewMore" data-toggle="modal" data-target="#myModal">View More<i class="fa fa-search pull-right"></i></a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" id="inlineEdit">Inline Edit<i class="fa fa-eraser pull-right"></i></a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#editModal" >Edit<i class="fa fa-edit pull-right"></i></a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#deleteModal">Remove<i class="fa fa-trash-o pull-right"></i></a></li>
-        </ul>
-    </div>
+        <div ng-controller="reservedController">
+            <table id="datatable2" datatable="ng"  dt-options="showCase.dtOptions" dt-column-defs="showCase.dtColumnDefs" class="table table-striped table-hover table-bordered table-condensed dataTable" >
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th >Registration Number</th>
+                    <th >Driver</th>
+                    <th >Reservation</th>
+                    <th >Start Date</th>
+                    <th >End Date</th>
+                    <th >Reserved To</th>
+                </tr>
+                </thead>
+                <tbody>
+                <div class="dropdown drops" >
+                    <ul class="dropdown-menus" role="menu" aria-labelledby="dropdownMenu1" >
+                        <li role="presentation"><a role="menuitem" tabindex="-1" id="viewMore" data-toggle="modal" data-target="#myModal">View More<i class="fa fa-search pull-right"></i></a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" id="inlineEdit">Inline Edit<i class="fa fa-eraser pull-right"></i></a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#editModal" >Edit<i class="fa fa-edit pull-right"></i></a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#deleteModal">Remove<i class="fa fa-trash-o pull-right"></i></a></li>
+                    </ul>
+                </div>
 
-    <tr ng-repeat="reservedvehicle in reservedvehicles" >
-        <td>{{$index+1}}</td>
-        <td>{{reservedvehicle.vehicle_id}}</td>
-        <td>{{reservedvehicle.reservation_id}}</td>
-        <td>{{reservedvehicle.driver_id}}</td>
-        <td style="text-align: center;"><a style="color:#51c6ea;">{{reservation.number_of_vehicles}}</a></td>
-        <td>{{reservation.possible_routes}}</td>
-        <td>{{reservation.reserved_to}}</td>
+                <tr ng-repeat="reservedvehicle in reservedvehicles" >
+                    <td>{{$index+1}}</td>
+                    <td>{{vehicle=(vehicles | filter:{id:reservedvehicle['vehicle_id']})[0]['registration_number']}}</td>
+                    <td>{{driver=(drivers | filter:{id:reservedvehicle['driver_id']})[0]['first_name']}} {{driver=(drivers | filter:{id:reservedvehicle['driver_id']})[0]['middle_name']}} {{driver=(drivers | filter:{id:reservedvehicle['driver_id']})[0]['last_name']}}</td>
+                    <td>{{reservation=(reservations|filter:{id:reservedvehicle['reservation_id']})[0]['title']}}</td>
+                    <td style="text-align: center;">{{reservation=(reservations|filter:{id:reservedvehicle['reservation_id']})[0]['start_date']}}</td>
+                    <td>{{reservation=(reservations|filter:{id:reservedvehicle['reservation_id']})[0]['end_date']}}</td>
+                    <td>{{reservation=(reservations|filter:{id:reservedvehicle['reservation_id']})[0]['reserved_to']}}</td>
 
-    </tr>
-    </tbody>
-</table>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
 

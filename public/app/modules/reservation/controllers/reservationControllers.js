@@ -81,8 +81,8 @@ dashboardModule.controller("reservationController",['$scope','$route', '$http', 
 }]);
 
 
-dashboardModule.controller("reservationsController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder','VehicleService','ReservationService',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder,VehicleService,ReservationService){
-
+dashboardModule.controller("reservationsController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder','VehicleService','ReservationService','DriverService',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder,VehicleService,ReservationService,DriverService){
+$scope.selectedReservationId = 1;
         $scope.months = ['January','February','March','April','May','June','July','August','October','September','November','December'];
         $scope.monthIndex = ['01','02','03','04','05','06','07','08','09','10','11','12'];
 
@@ -169,11 +169,44 @@ dashboardModule.controller("reservationsController",['$scope','$route', '$http',
             });
 
 
-    //console.log($scope.classChart);
+    ReservationService.listReserveVehicles().then(function(data){
+        $scope.reservedvehicles = data;
+    });
+    ReservationService.listReserveVehicles();
+
+    DriverService.listDrivers().then(function(data){
+            $scope.drivers = data;
+
+        },
+        function(errorMessage){
+            $scope.error=errorMessage;
+        });
+    DriverService.listDrivers();
+
 }]);
 
-dashboardModule.controller("reservedController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder){
+dashboardModule.controller("reservedController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder','VehicleService','DriverService','ReservationService',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder,VehicleService,DriverService,ReservationService){
+    VehicleService.listVehicles().then(function(data){
+            $scope.vehicles = data;
+        },
+        function(errorMessage){
+            $scope.error=errorMessage;
+        });
+    VehicleService.listVehicles();
 
+    DriverService.listDrivers().then(function(data){
+            $scope.drivers = data;
+
+        },
+        function(errorMessage){
+            $scope.error=errorMessage;
+        });
+    DriverService.listDrivers();
+
+    ReservationService.listReservations().then(function(data){
+        $scope.reservations = data;
+    });
+    ReservationService.listReservations();
 }]);
 
 
@@ -186,11 +219,18 @@ dashboardModule.controller("postponedController",['$scope','$route', '$http', '$
     ReservationService.listReservations().then(function(data){
         $scope.postponed = data;
     });
+
+    ReservationService.listReserveVehicles().then(function(data){
+        $scope.reservedvehicles = data;
+    });
 }]);
 
 dashboardModule.controller("cancelledController",['$scope','$route', '$http', '$resource', 'baseUrlReservations','DTOptionsBuilder', 'DTColumnDefBuilder','ReservationService',function($scope,$route, $http, $resource, baseUrlVehicles, DTOptionsBuilder, DTColumnDefBuilder,ReservationService){
     ReservationService.listReservations().then(function(data){
         $scope.cancelled = data;
+    });
+    ReservationService.listReserveVehicles().then(function(data){
+        $scope.reservedvehicles = data;
     });
 }]);
 

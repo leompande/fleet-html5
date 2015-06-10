@@ -112,7 +112,7 @@
             <td>{{reservation.start_date}}</td>
             <td>{{reservation.end_date}}</td>
             <td>{{reservation.updated_at}}</td>
-            <td style="text-align: center;"><a style="color:#51c6ea;">{{reservation.number_of_vehicles}}</a></td>
+            <td style="text-align: center;">{{ vehi = (reservedvehicles | filter:{reservation_id:reservation['id']}).length}}</td>
             <td>{{reservation.possible_routes}}</td>
             <td>{{reservation.reserved_to}}</td>
 

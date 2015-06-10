@@ -80,38 +80,46 @@
     }
 
 </style>
-<table id="datatable3" datatable="ng"  dt-options="showCase.dtOptions" dt-column-defs="showCase.dtColumnDefs" class="table table-striped table-hover table-bordered table-condensed dataTable" >
-    <thead>
-    <tr>
-       <th>#</th>
-        <th >Reservation Title</th>
-        <th >Start Date</th>
-        <th >End Date</th>
-        <th >Number Of Vehicles</th>
-        <th >Possible Route</th>
-        <th >Reserved To</th>
-    </tr>
-    </thead>
-    <tbody>
-    <div class="dropdown drops" >
-        <ul class="dropdown-menus" role="menu" aria-labelledby="dropdownMenu1" >
-            <li role="presentation"><a role="menuitem" tabindex="-1" id="viewMore" data-toggle="modal" data-target="#myModal">View More<i class="fa fa-search pull-right"></i></a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" id="inlineEdit">Inline Edit<i class="fa fa-eraser pull-right"></i></a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#editModal" >Edit<i class="fa fa-edit pull-right"></i></a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#deleteModal">Remove<i class="fa fa-trash-o pull-right"></i></a></li>
-        </ul>
-    </div>
+ <div ng-controller="reservationsController">
 
-    <tr ng-repeat="reservation in filtered = (reservations | FilterPeriod:periodMonth:periodYear | filter:{postponed: 0} | filter:{cancelled: 0})" ng-click="contextMenu($event,reservation)"  title="click for other options" >
-        <td>{{$index+1}}</td>
-        <td>{{reservation.title}}</td>
-        <td>{{reservation.start_date}}</td>
-        <td>{{reservation.end_date}}</td>
-        <td style="text-align: center;"><a style="color:#51c6ea;">{{reservation.number_of_vehicles}}</a></td>
-        <td>{{reservation.possible_routes}}</td>
-        <td>{{reservation.reserved_to}}</td>
+     <table id="datatable3" datatable="ng"  dt-options="showCase.dtOptions" dt-column-defs="showCase.dtColumnDefs" class="table table-striped table-hover table-bordered table-condensed dataTable" >
+         <thead>
+         <tr>
+             <th>#</th>
+             <th >Reservation Title</th>
+             <th >Start Date</th>
+             <th >End Date</th>
+             <th >Number Of Vehicles</th>
+             <th >Possible Route</th>
+             <th >Reserved To</th>
+         </tr>
+         </thead>
+         <tbody>
+         <div class="dropdown drops" >
+             <ul class="dropdown-menus" role="menu" aria-labelledby="dropdownMenu1" >
+                 <li role="presentation"><a role="menuitem" tabindex="-1" id="viewMore" data-toggle="modal" data-target="#myModal">View More<i class="fa fa-search pull-right"></i></a></li>
+                 <li role="presentation"><a role="menuitem" tabindex="-1" id="inlineEdit">Inline Edit<i class="fa fa-eraser pull-right"></i></a></li>
+                 <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#editModal" >Edit<i class="fa fa-edit pull-right"></i></a></li>
+                 <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#deleteModal">Remove<i class="fa fa-trash-o pull-right"></i></a></li>
+             </ul>
+         </div>
 
-    </tr>
-    </tbody>
-</table>
+         <tr ng-repeat="reservation in filtered = (reservations | FilterPeriod:periodMonth:periodYear | filter:{postponed: 0} | filter:{cancelled: 0})" ng-click="contextMenu($event,reservation)"  title="click for other options" >
+             <td>{{$index+1}}</td>
+             <td>{{reservation.title}}</td>
+             <td>{{reservation.start_date}}</td>
+             <td>{{reservation.end_date}}</td>
+             <td style="text-align: center;">
+                 <a style="color:#51c6ea;">
+                    {{ vehi = (reservedvehicles | filter:{reservation_id:reservation['id']}).length}}
+                 </a>
+             </td>
+             <td>{{reservation.possible_routes}}</td>
+             <td>{{reservation.reserved_to}}</td>
+
+         </tr>
+         </tbody>
+     </table>
+
+ </div>
 

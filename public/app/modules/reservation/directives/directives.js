@@ -70,6 +70,7 @@ angular.module("reservationApp")
                    restrict:"E",
                    scope: {
                        reservations: "=reservations",
+                       drivers: "=drivers",
                        periodMonth: "=month",
                        periodYear: "=year"
                    },
@@ -221,6 +222,7 @@ angular.module("reservationApp")
             restrict:"E",
             scope: {
                 vehicles: "=?vehicles",
+                drivers: "=?drivers",
                 reservedVehicles: "=?reservedVehicles",
                 range: "=?range",
                 modalTitle: "=?modalTitle",
