@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMakesTable extends Migration {
+class CreateRolesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,12 @@ class CreateMakesTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('makes', function(Blueprint $table)
-        {
-            $table->increments('id');
-            $table->string('make_name');
-            $table->timestamps();
-        });
+		Schema::create('roles', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->string('role_name');
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -27,7 +27,7 @@ class CreateMakesTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('makes');
+		Schema::drop('roles');
 	}
 
 }

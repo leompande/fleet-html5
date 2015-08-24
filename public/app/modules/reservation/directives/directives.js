@@ -123,7 +123,7 @@ angular.module("reservationApp")
                                                      */
                                                     var myEl = angular.element( document.querySelector( '.dropdown-menus' ) );
                                                     var myD = angular.element( document.querySelector( '.drops' ) );
-                                                    var inlineEditMenu = angular.element( document.querySelector( '#inlineEdit' ) );
+                                                    var postpone = angular.element( document.querySelector( '#postpone' ) );
                                                     var viewMoreMenu = angular.element( document.querySelector( '#viewMore' ) );
                                                     var colseRight = angular.element( document.querySelector( '#colseRight' ) );
 
@@ -152,7 +152,7 @@ angular.module("reservationApp")
                                                         scope.modalTitle = "DETAILED INFORMATION FOR VEHICLE : Reg# ";
                                                         scope.currentVehicle = jsonObject;
                                                         scope.openLocation(event);
-
+console.log($(event.toElement).attr("id"));
                                                         $(".input_"+scope.id).css('display','none');
                                                         $(".text_"+scope.id).css('display','block');
                                                         myD.css('top',scope.offsetY+"px");
@@ -163,31 +163,26 @@ angular.module("reservationApp")
                                                         });
                                                         //
                                                         //scope.id = jsonObject.id;// getting object Id from context menu
-                                                        //
-                                                        //// edit objects inline through context menus
-                                                        //inlineEditMenu.on("click",function(){
-                                                        //    // pass object Id to inline edit function
-                                                        //    scope.inlineEdit(scope.id);
-                                                        //    //scope.update(jsonObject);
-                                                        //    scope.change = function(newValue,editedColumn,ObjectType){
-                                                        //        scope.updateInline({objectId:scope.id,edittedColumn:editedColumn,newValue:newValue});
-                                                        //    }
-                                                        //});
+
                                                     }
+                                                    scope.postponeReservation = function(vid,rid){
+                                                        console.log(scope.currentVehicle);
+                                                        console.log(rid);
+                                                    }
+
+                                                    //postpone the reservation on context menu click
+                                                    postpone.bind('click',function(){
+                                                        console.log($(this));
+                                                        var vehicleId = "";
+                                                        var reservationId = "";
+                                                        scope.postponeReservation(vehicleId,reservationId);
+                                                    });
                                                     scope.openLocation = function(event){
                                                         scope.offsetX =event.clientX/1.5;//(event.clientX-100);
                                                         scope.offsetY = event.clientY/2;//(event.clientY-100);
                                                     }
 
-                                                    //scope.inlineEdit = function(id){
-                                                    //    $(".input_"+id).css('display','block');
-                                                    //    $(".text_"+id).css('display','none');
-                                                    //    $(".input_"+scope.id).click(function(e){
-                                                    //        e.stopPropagation();
-                                                    //    });
-                                                    //
-                                                    //
-                                                    //}
+
                                                     scope.contextMenu(e,reservation);
 
 

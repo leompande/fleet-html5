@@ -68,6 +68,7 @@
     <script src="public/app/modules/vehicle/controllers/vehicleControllers.js"></script>
     <script src="public/app/modules/driver/controllers/driverControllers.js"></script>
     <script src="public/app/modules/reservation/controllers/reservationControllers.js"></script>
+    <script src="public/app/modules/user/controllers/userControllers.js"></script>
     <!-- ======================== app services ======================= -->
     <script src="public/app/modules/vehicle/services/vehicleServices.js"></script>
     <script src="public/app/modules/reservation/services/reservationServices.js"></script>
@@ -80,6 +81,7 @@
     <script src="public/app/modules/vehicle/directives/directives.js"></script>
     <script src="public/app/modules/reservation/directives/directives.js"></script>
     <script src="public/app/modules/driver/directives/directives.js"></script>
+    <script src="public/app/modules/user/userModule.js"></script>
 <!-- ======================== App Script files ======================= -->
 
 </head>
@@ -92,7 +94,7 @@
     <nav role="navigation" class="navbar topnavbar">
         <!-- START navbar header-->
         <div class="navbar-header">
-            <a href="dashboard.html#/" class="navbar-brand">
+            <a href="#/dashboard" class="navbar-brand" ng-click="setTitle('dashboard')">
                 <div class="brand-logo" style="color:#ffffff;font-weight:bolder;">
                     <span>Fleet (F.C.M.S) </span>
                     <!--<img src="" alt="Fleet (F.C.M.S)" style="border: none;" class="img-responsive">-->

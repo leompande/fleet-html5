@@ -11,7 +11,7 @@
  */
 
 
-var fleetApp = angular.module("fleetApp",['ngRoute','highcharts-ng','dashboardModule','vehicleApp','driverApp','reservationApp','angularjs-dropdown-multiselect','720kb.datepicker']);
+var fleetApp = angular.module("fleetApp",['ngRoute','highcharts-ng','dashboardModule','vehicleApp','driverApp','reservationApp','userApp','angularjs-dropdown-multiselect','720kb.datepicker']);
 
     // fleet module configurations
    fleetApp.config(['$routeProvider', function($routeProvider) {
@@ -48,6 +48,10 @@ var fleetApp = angular.module("fleetApp",['ngRoute','highcharts-ng','dashboardMo
        .when('/fuels', {
                template: '<h5>This is the vehicle fuels</h5>'
        })
+       .when('/user', {
+               templateUrl: 'public/app/modules/user/views/index.html',
+               controller: "reservationController"
+           })
        .otherwise({redirectTo: '/dashboard'});
    }]);
 
